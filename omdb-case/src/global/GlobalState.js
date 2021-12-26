@@ -9,7 +9,7 @@ import GlobalStateContext from "./GlobalStateContext"
 const GlobalState = (props) => {
   const [movies, setMovies] = useState([])
   const [movieDetails, setMovieDetails] = useState([])
-  // const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   //   const params = useParams()
 
   console.log("DETALHES", movieDetails)
@@ -29,12 +29,13 @@ const GlobalState = (props) => {
   }
 
   useEffect(() => {
-    getMovies("batman")
+    getMovies("spider")
   }, [])
 
   useEffect(() => {
     const newList = []
       movies.forEach((item) => {
+        setIsLoading(true)
         axios
             .get(`${BASE_URL}/?i=${item.imdbID}&plot=full&apikey=${API_KEY}`)
             .then((res) => {
@@ -44,15 +45,17 @@ const GlobalState = (props) => {
                   return a.Year - b.Year
                 })
                 setMovieDetails(orderedList)
+                setIsLoading(false)
               }
             })
             .catch((error) => {
+              setIsLoading(false)
               console.log(error)
             }) 
       })
   }, [movies])
 
-  const data = { movies, setMovies, movieDetails, setMovieDetails }
+  const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading }
 
   return (
     <GlobalStateContext.Provider value={data}>

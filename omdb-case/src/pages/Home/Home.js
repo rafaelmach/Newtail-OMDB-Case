@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import { goToDetailsPage } from "../../routes/coordinator"
 import { MainContainer } from "./Home.styles"
 import { useHistory } from "react-router"
