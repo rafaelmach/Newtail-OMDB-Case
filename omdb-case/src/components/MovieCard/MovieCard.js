@@ -1,7 +1,5 @@
 import React from 'react'
 import { CardImage, CardVote, MovieCardContainer } from './MovieCard.styles'
-// import cardImage from "../../images/card_image_test.jpg"
-
 
 const MovieCard = ({cardInfo, onClick}) => {
     
@@ -9,7 +7,7 @@ const MovieCard = ({cardInfo, onClick}) => {
         <MovieCardContainer onClick={onClick}>
             <CardImage src={`${cardInfo.Poster}`} />
             <CardVote>
-                {cardInfo.vote_average}
+                {cardInfo.imdbRating}
             </CardVote>
         </MovieCardContainer>
     )

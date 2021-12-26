@@ -6,7 +6,8 @@ import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
 
 const Home = () => {
-  const { movies } = useContext(GlobalStateContext)
+  const { movieDetails } = useContext(GlobalStateContext)
+
   const history = useHistory()
 
   const onClickCard = (id) => {
@@ -30,8 +31,8 @@ const Home = () => {
 
 
   const movieCards =
-    movies &&
-    movies.map((movie) => {
+    movieDetails &&
+    movieDetails.map((movie) => {
       return (
         <MovieCard
           cardInfo={movie}
