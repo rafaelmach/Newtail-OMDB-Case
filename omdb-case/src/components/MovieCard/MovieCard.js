@@ -7,7 +7,7 @@ const MovieCard = ({cardInfo, onClick}) => {
     
     return (
         <MovieCardContainer onClick={onClick}>
-            <CardImage src={`https://image.tmdb.org/t/p/original${cardInfo.poster_path}`} />
+            <CardImage src={`${cardInfo.Poster}`} />
             <CardVote>
                 {cardInfo.vote_average}
             </CardVote>
