@@ -3,16 +3,14 @@ import axios from "axios"
 import { BASE_URL } from "../constants/urls"
 import { API_KEY } from "../constants/apikey"
 import GlobalStateContext from "./GlobalStateContext"
-// import { useParams } from 'react-router-dom'
-// import Loading from '../../components/Loading/Loading';
+
 
 const GlobalState = (props) => {
   const [movies, setMovies] = useState([])
   const [movieDetails, setMovieDetails] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  //   const params = useParams()
 
-  console.log("DETALHES", movieDetails)
+  
 
   const getMovies = (searchTitle) => {
     axios
