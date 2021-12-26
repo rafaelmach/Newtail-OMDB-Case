@@ -1,51 +1,42 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext } from 'react'
 import { useHistory } from "react-router";
-import { LANGUAGE } from '../../constants/language'
-import { BASE_URL } from '../../constants/urls'
 import { GeneralContainer, InfoContainer, MoviePoster, Overview, MainTitle, OriginalTitle, GenderWrap, DateRunTime, BackButton } from './DetailsPage.styles'
 import { goBack } from '../../routes/coordinator';
 import Loading from '../../components/Loading/Loading';
+import GlobalStateContext from '../../global/GlobalStateContext';
 
 
 const DetailsPage = () => {
-    const [movie, setMovie] = useState({})
-    const [isLoading, setIsLoading] = useState(false)
-    const params = useParams()
     const history = useHistory()
 
-    const getDetails = () => {
-        setIsLoading(true)
-        axios.get(`${BASE_URL}/${params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&${LANGUAGE}`)
-        .then((res) => {
-            setMovie(res.data)
-            setIsLoading(false)
-        })
-        .catch((error) => {
-            setIsLoading(false)
-            console.log(error)
-        })
-    }
+    const { movieDetails, isLoading } = useContext(GlobalStateContext)
 
-    useEffect(() => {
-        getDetails()
-    }, [])
+    // const getDetails = () => {
+    //     setIsLoading(true)
+    //     axios.get(`${BASE_URL}/${params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&${LANGUAGE}`)
+    //     .then((res) => {
+    //         setMovie(res.data)
+    //         setIsLoading(false)
+    //     })
+    //     .catch((error) => {
+    //         setIsLoading(false)
+    //         console.log(error)
+    //     })
+    // }
 
-    const revenue = movie && movie.revenue
-
-    const numberDollar = revenue && revenue.toLocaleString("pt-BR", {style: "currency", currency: "USD"})
+    const revenue = movieDetails && movieDetails.BoxOffice
+    const BoxOfficeDollar = revenue && revenue.toLocaleString("pt-BR", {style: "currency", currency: "USD"})
     
-    const movieGenres = movie.genres
+    // const movieGenres = movie.genres
 
 
-    const ConvertedTime = () => {
-        const runtime = movie && movie.runtime
-        const hours = Math.floor(runtime / 60);          
-        const minutes = runtime % 60;
+    // const ConvertedTime = () => {
+    //     const runtime = movie && movie.runtime
+    //     const hours = Math.floor(runtime / 60);          
+    //     const minutes = runtime % 60;
 
-        return `${hours} h ${minutes} min`
-    }
+    //     return `${hours} h ${minutes} min`
+    // }
 
     return (
         <GeneralContainer>
@@ -54,17 +45,17 @@ const DetailsPage = () => {
                 : 
             <><InfoContainer>
                         <MainTitle>
-                            {movie.title}
+                            {movieDetails.Title}
                         </MainTitle>
-                        <OriginalTitle>Título original: {movie.original_title}</OriginalTitle>
+                        <OriginalTitle>Título original: {movieDetails.Title}</OriginalTitle>
                         <DateRunTime>
-                            <p>{movie.release_date}</p>
-                            <p>{ConvertedTime()}</p>
+                            <p>{movieDetails.Year}</p>
+                            <p>{movieDetails.Runtime}</p>
                         </DateRunTime>
 
-                        <Overview>{movie.overview}</Overview>
-                        <p>Avaliação do TMDB: ⭐ <strong>{movie.vote_average}</strong></p>
-                        <p>Arrecadação: {numberDollar}</p>
+                        <Overview>{movieDetails.Plot}</Overview>
+                        <p>Avaliação do TMDB: ⭐ <strong>{movieDetails.imdbRating}</strong></p>
+                        <p>Arrecadação: {BoxOfficeDollar}</p>
                         <GenderWrap>
                             {movieGenres && movieGenres.map((item) => <p key={item.id}>{item.name}</p>
 

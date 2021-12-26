@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { AppContainer } from './App.styles'
 import Loading from './components/Loading/Loading'
+import GlobalState from './global/GlobalState'
 import Router from './routes/Router'
 
 
@@ -16,16 +17,17 @@ const App = () => {
 }, [])
 
   return (
+    <GlobalState>
     <AppContainer>
     {
       isLoading ? <Loading />
       :
       <BrowserRouter>
-        {/* <Header /> */}
         <Router />
       </BrowserRouter>
     }
     </AppContainer>
+    </GlobalState>
   )
 }
 
