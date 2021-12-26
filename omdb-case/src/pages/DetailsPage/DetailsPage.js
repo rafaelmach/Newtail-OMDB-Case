@@ -1,73 +1,72 @@
-import { useContext } from 'react'
-import { useHistory } from "react-router";
-import { GeneralContainer, InfoContainer, MoviePoster, Overview, MainTitle, OriginalTitle, GenderWrap, DateRunTime, BackButton } from './DetailsPage.styles'
-import { goBack } from '../../routes/coordinator';
-import Loading from '../../components/Loading/Loading';
-import GlobalStateContext from '../../global/GlobalStateContext';
-
+import { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router"
+import {
+  GeneralContainer,
+  InfoContainer,
+  MoviePoster,
+  Overview,
+  MainTitle,
+  OriginalTitle,
+  GenderWrap,
+  DateRunTime,
+  BackButton,
+} from "./DetailsPage.styles"
+import { goBack } from "../../routes/coordinator"
+import Loading from "../../components/Loading/Loading"
+import GlobalStateContext from "../../global/GlobalStateContext"
+import { useParams } from "react-router-dom"
 
 const DetailsPage = () => {
-    const history = useHistory()
+  const { movieDetails, isLoading } = useContext(GlobalStateContext)
+  const [selectedMovie, setSelectedMovie] = useState({})
+  const history = useHistory()
+  const params = useParams()
 
-    const { movieDetails, isLoading } = useContext(GlobalStateContext)
+  useEffect(() => {
+    const currentMovie = movieDetails.find((item) => {
+      return item.imdbID === params.id
+    })
+    setSelectedMovie(currentMovie)
+  }, [])
 
-    // const getDetails = () => {
-    //     setIsLoading(true)
-    //     axios.get(`${BASE_URL}/${params.id}?api_key=${process.env.REACT_APP_TMDB_KEY}&${LANGUAGE}`)
-    //     .then((res) => {
-    //         setMovie(res.data)
-    //         setIsLoading(false)
-    //     })
-    //     .catch((error) => {
-    //         setIsLoading(false)
-    //         console.log(error)
-    //     })
-    // }
+  const movieGenres =
+    selectedMovie && selectedMovie.Genre && selectedMovie.Genre?.split(",")
 
-    const revenue = movieDetails && movieDetails.BoxOffice
-    const BoxOfficeDollar = revenue && revenue.toLocaleString("pt-BR", {style: "currency", currency: "USD"})
-    
-    // const movieGenres = movie.genres
+  return (
+    <GeneralContainer>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <InfoContainer>
+            <MainTitle>{selectedMovie.Title}</MainTitle>
+            <OriginalTitle>
+              Título original: {selectedMovie.Title}
+            </OriginalTitle>
+            <DateRunTime>
+              <p>{selectedMovie.Year}</p>
+              <p>{selectedMovie.Runtime}</p>
+            </DateRunTime>
 
-
-    // const ConvertedTime = () => {
-    //     const runtime = movie && movie.runtime
-    //     const hours = Math.floor(runtime / 60);          
-    //     const minutes = runtime % 60;
-
-    //     return `${hours} h ${minutes} min`
-    // }
-
-    return (
-        <GeneralContainer>
-            {
-                isLoading ? <Loading />
-                : 
-            <><InfoContainer>
-                        <MainTitle>
-                            {movieDetails.Title}
-                        </MainTitle>
-                        <OriginalTitle>Título original: {movieDetails.Title}</OriginalTitle>
-                        <DateRunTime>
-                            <p>{movieDetails.Year}</p>
-                            <p>{movieDetails.Runtime}</p>
-                        </DateRunTime>
-
-                        <Overview>{movieDetails.Plot}</Overview>
-                        <p>Avaliação do TMDB: ⭐ <strong>{movieDetails.imdbRating}</strong></p>
-                        <p>Arrecadação: {BoxOfficeDollar}</p>
-                        <GenderWrap>
-                            {movieGenres && movieGenres.map((item) => <p key={item.id}>{item.name}</p>
-
-                            )}
-                        </GenderWrap>
-                        <BackButton onClick={() => goBack(history)} aria-label="Botão para Voltar" />
-
-                    </InfoContainer>
-                    <MoviePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} /></>
-            }    
-        </GeneralContainer>
-    )
+            <Overview>{selectedMovie.Plot}</Overview>
+            <p>
+              Avaliação do TMDB: ⭐ <strong>{selectedMovie.imdbRating}</strong>
+            </p>
+            <p>Arrecadação: {selectedMovie.BoxOffice}</p>
+            <GenderWrap>
+              {movieGenres &&
+                movieGenres.map((item) => <p key={item}>{item.trim()}</p>)}
+            </GenderWrap>
+            <BackButton
+              onClick={() => goBack(history)}
+              aria-label="Botão para Voltar"
+            />
+          </InfoContainer>
+          <MoviePoster src={`${selectedMovie.Poster}`} />
+        </>
+      )}
+    </GeneralContainer>
+  )
 }
 
 export default DetailsPage
