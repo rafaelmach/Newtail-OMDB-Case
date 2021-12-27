@@ -33,7 +33,7 @@ const GlobalState = (props) => {
   useEffect(() => {
     const newList = []
         movies && movies.forEach((item) => {
-        // setIsLoading(true)
+        setIsLoading(true)
         axios
             .get(`${BASE_URL}/?i=${item.imdbID}&plot=full&apikey=${API_KEY}`)
             .then((res) => {
@@ -43,11 +43,11 @@ const GlobalState = (props) => {
                   return a.Year - b.Year
                 })
                 setMovieDetails(orderedList)
-                // setIsLoading(false)
+                setIsLoading(false)
               }
             })
             .catch((error) => {
-              // setIsLoading(false)
+              setIsLoading(false)
               console.log(error)
             }) 
       })

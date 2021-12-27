@@ -87,3 +87,11 @@ export const PosterImg2 = styled.img`
     display: none;
   }
 `
+
+export const SearchErrorMessage = styled.p`
+  background-color: blue;
+  font-weight: 400;
+  color: #7b8c98;
+  font-size: 1.4em;
+  text-align: center;
+`
