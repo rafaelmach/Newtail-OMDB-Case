@@ -6,11 +6,12 @@ import GlobalStateContext from "./GlobalStateContext"
 
 
 const GlobalState = (props) => {
+  const [searchTerm, setSearchTerm] = useState("")
   const [movies, setMovies] = useState([])
   const [movieDetails, setMovieDetails] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  
+  console.log(searchTerm)
 
   const getMovies = (searchTitle) => {
     axios
@@ -27,7 +28,7 @@ const GlobalState = (props) => {
   }
 
   useEffect(() => {
-    getMovies("spider")
+    getMovies("batman")
   }, [])
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const GlobalState = (props) => {
       })
   }, [movies])
 
-  const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading }
+  const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading, setSearchTerm }
 
   return (
     <GlobalStateContext.Provider value={data}>

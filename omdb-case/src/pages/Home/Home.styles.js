@@ -1,6 +1,11 @@
 import styled from "styled-components"
 
-export const MainContainer = styled.div`
+export const GeneralContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 30px;

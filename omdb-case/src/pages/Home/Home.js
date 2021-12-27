@@ -1,9 +1,10 @@
 import React, { useContext } from "react"
 import { goToDetailsPage } from "../../routes/coordinator"
-import { MainContainer } from "./Home.styles"
+import { CardsContainer, GeneralContainer } from "./Home.styles"
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
+import SearchBar from "../../components/SearchBar/SearchBar"
 
 const Home = () => {
   const { movieDetails } = useContext(GlobalStateContext)
@@ -42,7 +43,15 @@ const Home = () => {
       )
     })
 
-  return <MainContainer>{movieCards}</MainContainer>
+  return (
+  <GeneralContainer>
+    <SearchBar placeholder="Search movies ..."/>
+  <CardsContainer>
+      
+    {movieCards}
+    </CardsContainer>
+    </GeneralContainer>
+  )
 }
 
 export default Home
