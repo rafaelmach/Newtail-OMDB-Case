@@ -16,12 +16,20 @@ export const Content = styled.div`
   justify-content: center;
   position: relative;
   /* max-width: 600px; */
-  width: 100%;
+  min-width: 1500px;
+  width: 90%;
   height: 55px;
-  /* background-color: white; */
   margin: 0 auto;
   border-radius: 2px;
   color: black;
+
+  @media screen and (max-width: 1000px) {
+        
+    min-width: 0;
+
+    width: 100%;
+
+    }
 
   input {
     background-color: white;

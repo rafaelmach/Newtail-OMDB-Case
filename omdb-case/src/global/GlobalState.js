@@ -4,14 +4,11 @@ import { BASE_URL } from "../constants/urls"
 import { API_KEY } from "../constants/apikey"
 import GlobalStateContext from "./GlobalStateContext"
 
-
 const GlobalState = (props) => {
   const [searchTerm, setSearchTerm] = useState("")
   const [movies, setMovies] = useState([])
   const [movieDetails, setMovieDetails] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-
-  console.log(searchTerm)
 
   const getMovies = (searchTitle) => {
     axios
@@ -19,8 +16,7 @@ const GlobalState = (props) => {
         `${BASE_URL}/?s=${searchTitle}&page=1&apikey=${API_KEY}`
       )
       .then((res) => {
-        setMovies(res.data.Search)
-        // if(res.data.Response === "True") displayMovieTitle(res.data.Search)
+        if(res.data.Response === "True") setMovies(res.data.Search)
       })
       .catch((err) => {
         console.log(err)
@@ -28,13 +24,16 @@ const GlobalState = (props) => {
   }
 
   useEffect(() => {
-    getMovies("batman")
-  }, [])
+    setMovies([])
+    setMovieDetails([])
+    getMovies(searchTerm)
+  }, [searchTerm])
+
 
   useEffect(() => {
     const newList = []
-      movies.forEach((item) => {
-        setIsLoading(true)
+        movies && movies.forEach((item) => {
+        // setIsLoading(true)
         axios
             .get(`${BASE_URL}/?i=${item.imdbID}&plot=full&apikey=${API_KEY}`)
             .then((res) => {
@@ -44,17 +43,20 @@ const GlobalState = (props) => {
                   return a.Year - b.Year
                 })
                 setMovieDetails(orderedList)
-                setIsLoading(false)
+                // setIsLoading(false)
               }
             })
             .catch((error) => {
-              setIsLoading(false)
+              // setIsLoading(false)
               console.log(error)
             }) 
       })
   }, [movies])
 
   const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading, setSearchTerm }
+
+  console.log("MOVIES", movies)
+  console.log("DETAILS", movieDetails)
 
   return (
     <GlobalStateContext.Provider value={data}>
