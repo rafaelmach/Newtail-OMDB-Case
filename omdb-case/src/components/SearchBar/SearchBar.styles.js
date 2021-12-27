@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 100px;
-  /* background-color: white; */
   padding: 0 20px;
+  margin-top: 20px;
 `
 
 export const Content = styled.div`
