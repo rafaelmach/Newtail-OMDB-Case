@@ -53,7 +53,7 @@ const GlobalState = (props) => {
       })
   }, [movies])
 
-  const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading, setSearchTerm }
+  const data = { movies, setMovies, movieDetails, setMovieDetails, isLoading, setIsLoading, searchTerm, setSearchTerm }
 
   console.log("MOVIES", movies)
   console.log("DETAILS", movieDetails)
