@@ -15,24 +15,9 @@ const Home = () => {
     goToDetailsPage(history, id)
   }
 
-  // const movieSearchBox = document.getElementById("movie-search-box")
-  // const searchList = document.getElementById("search-list")
-  // const resultGrid = document.getElementById("result-grid")
-
-  // const findMovies = () => {
-  //   let searchTitle = (movieSearchBox.value).trim()
-  // }
-
-
-  // const displayMovieTitle = (movies) => {
-    
-  // }
   
-
-
-
   const movieCards =
-    movieDetails &&
+  movieDetails && movieDetails.length === 10 &&
     movieDetails.map((movie) => {
       return (
         <MovieCard
