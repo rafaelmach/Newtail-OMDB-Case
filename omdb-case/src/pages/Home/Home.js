@@ -14,14 +14,14 @@ import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import posterImg1 from "../../images/interstellar_poster.jpg"
-import posterImg2 from "../../images/rounders_poster.jpg"
+import posterImg2 from "../../images/saving_private_ryan_poster.jpg"
 
 const Home = () => {
   const [searchError, setsearchError] = useState("")
   const { movieDetails, searchTerm, setSearchTerm } =
     useContext(GlobalStateContext)
   const initial = useRef(true)
- const history = useHistory()
+  const history = useHistory()
 
   const onClickCard = (id) => {
     goToDetailsPage(history, id)

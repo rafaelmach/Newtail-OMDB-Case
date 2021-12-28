@@ -47,27 +47,6 @@ export const Content = styled.div`
   }
 `
 
-// export const XXX = styled.div`
-//   display: flex;
-//   margin-top: 50px;
-
-//   input {
-//     background-color: white;
-//     border: 0;
-//     border-radius: 2px;
-//     border-top-right-radius: 0px;
-//     border-bottom-right-radius: 0px;
-//     font-size: 18px;
-//     padding: 15px;
-//     height: 30px;
-//     width: 1000px;
-
-//     &:focus {
-//       outline: none;
-//   }
-// }
-// `
-
 export const SearchIcon = styled(FaSearch)`
   position: absolute;
   margin-right: 70%;
