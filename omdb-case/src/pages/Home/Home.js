@@ -21,8 +21,7 @@ const Home = () => {
   const { movieDetails, searchTerm, setSearchTerm } =
     useContext(GlobalStateContext)
   const initial = useRef(true)
-
-  const history = useHistory()
+ const history = useHistory()
 
   const onClickCard = (id) => {
     goToDetailsPage(history, id)
