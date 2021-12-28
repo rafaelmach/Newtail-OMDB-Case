@@ -1,11 +1,11 @@
 import React from "react"
 import { LoadingContainer } from "./Loading.styles"
-import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader"
+import BeatLoader from "react-spinners/BeatLoader"
 
 const Loading = () => {
   return (
     <LoadingContainer>
-      <ClimbingBoxLoader size={30} color={"#ffffff"} loading={true} />
+      <BeatLoader size={30} color={"#E2B616"} loading={true} />
     </LoadingContainer>
   )
 }
