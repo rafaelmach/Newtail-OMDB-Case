@@ -22,12 +22,12 @@ export const CardImage = styled.img`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: all 0.5s;
+  transition: all 0.3s;
   object-fit: cover;
   animation: animateThumb 0.5s;
 
   :hover {
-    opacity: 0.2;
+    opacity: 0.1;
   }
 
   @keyframes animateThumb {
@@ -58,19 +58,51 @@ export const CardVote = styled.div`
   border-radius: 5px;
 `
 
-export const DetailsIcon = styled(MdPageview)`
+export const MovieTitle = styled.h2`
   visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
-  /* position: absolute;
-  margin-right: 70%;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 14%;
+  padding: 0 2px;
+  font-weight: 500;
+  transition: ease-in 0.1s;
+  transition: transform 500ms ease;
+  transform: ${({ hoverCard }) =>
+    hoverCard ? "translateY(0)" : "translateY(70%)"};
+`
+
+export const Released = styled.p`
+  visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  font-weight: 500;
+  color: #7b8c98;
+  font-size: 1.2em;
+  transition: transform 500ms ease;
+  transform: ${({ hoverCard }) =>
+    hoverCard ? "translateY(0)" : "translateY(70%)"};
+`
+
+// export const DetailsIcon = styled(MdPageview)`
+//   visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
+//   position: absolute;
+//   color: white;
+//   z-index: 3;
+/* margin-right: 70%;
   top: 14px;
   height: 30px;
-  width: 30px; */
-  /* background-color: transparent; */
-  color: white;
-  /* display: flex;
+  width: 30px;  */
+/* background-color: transparent; */
+
+/* display: flex;
   justify-content: center;
   align-items: center; */
-`
 
 // export const CardVisible = styled.div`
 //   visibility: hidden;

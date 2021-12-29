@@ -1,5 +1,11 @@
 import React, { useState } from "react"
-import { CardImage, CardVisible, CardVote, DetailsIcon, MovieCardContainer } from "./MovieCard.styles"
+import {
+  CardImage,
+  CardVote,
+  MovieCardContainer,
+  MovieTitle,
+  Released,
+} from "./MovieCard.styles"
 import noCardImage from "../../images/no_image.jpg"
 
 const MovieCard = ({ cardInfo, onClick }) => {
@@ -18,11 +24,18 @@ const MovieCard = ({ cardInfo, onClick }) => {
       <CardImage
         src={cardInfo.Poster === "N/A" ? noCardImage : cardInfo.Poster}
         alt="Movie Poster"
-      > <DetailsIcon alt="details-icon" hoverCard={hoverCard}/> </CardImage>
+      />
+
       {hoverCard ? null : <CardVote>{cardInfo.imdbRating}</CardVote>}
-      
+
+      <MovieTitle hoverCard={hoverCard}> {cardInfo.Title} </MovieTitle>
+      <Released hoverCard={hoverCard}> {cardInfo.Year} </Released>
     </MovieCardContainer>
   )
 }
 
 export default MovieCard
+
+{
+  /* <DetailsIcon alt="details-icon" hoverCard={hoverCard}/> */
+}
