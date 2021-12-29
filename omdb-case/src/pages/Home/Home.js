@@ -35,7 +35,7 @@ const Home = () => {
         <MovieCard
           cardInfo={movie}
           key={movie.imdbID}
-          onClick={() => onClickCard(movie.imdbID)}
+          clickCard={() => onClickCard(movie.imdbID)}
         />
       )
     })

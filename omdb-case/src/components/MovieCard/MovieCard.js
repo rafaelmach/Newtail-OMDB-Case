@@ -4,24 +4,26 @@ import {
   CardVote,
   MovieCardContainer,
   MovieTitle,
+  RegularHeartIcon,
   Released,
 } from "./MovieCard.styles"
 import noCardImage from "../../images/no_image.jpg"
 
-const MovieCard = ({ cardInfo, onClick }) => {
+const MovieCard = ({ cardInfo, clickCard }) => {
   const [hoverCard, sethoverCard] = useState(false)
 
   const onHover = () => {
     sethoverCard(!hoverCard)
   }
 
+  const LikeButton = () => {
+    console.log("CLICOU NO LIKE")
+  }
+
   return (
-    <MovieCardContainer
-      onClick={onClick}
-      onMouseEnter={onHover}
-      onMouseLeave={onHover}
-    >
+    <MovieCardContainer onMouseEnter={onHover} onMouseLeave={onHover}>
       <CardImage
+        onClick={clickCard}
         src={cardInfo.Poster === "N/A" ? noCardImage : cardInfo.Poster}
         alt="Movie Poster"
       />
@@ -30,6 +32,13 @@ const MovieCard = ({ cardInfo, onClick }) => {
 
       <MovieTitle hoverCard={hoverCard}> {cardInfo.Title} </MovieTitle>
       <Released hoverCard={hoverCard}> {cardInfo.Year} </Released>
+
+      <RegularHeartIcon
+        hoverCard={hoverCard}
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+        onClick={LikeButton}
+      />
     </MovieCardContainer>
   )
 }

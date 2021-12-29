@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { MdPageview } from "react-icons/md"
+// import { MdPageview } from "react-icons/md"
+import { FaRegHeart } from "react-icons/fa"
 
 export const MovieCardContainer = styled.div`
   border-radius: 10px;
@@ -87,6 +88,19 @@ export const Released = styled.p`
   transition: transform 500ms ease;
   transform: ${({ hoverCard }) =>
     hoverCard ? "translateY(0)" : "translateY(70%)"};
+`
+
+export const RegularHeartIcon = styled(FaRegHeart)`
+  visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
+  position: absolute;
+  z-index: 5;
+  top: 3%;
+  right: 5%;
+  /* margin-right: 90%; */
+  /* margin-bottom: 5%; */
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
 `
 
 // export const DetailsIcon = styled(MdPageview)`
