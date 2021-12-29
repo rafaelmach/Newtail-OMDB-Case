@@ -1,20 +1,7 @@
-import styled from "styled-components"
-// import { MdPageview } from "react-icons/md"
+import styled from "styled-components";
+import { MdPageview } from "react-icons/md"
 import { FaRegHeart } from "react-icons/fa"
-
-export const MovieCardContainer = styled.div`
-  border-radius: 10px;
-  width: 300px;
-  height: 400px;
-  margin: 15px;
-  position: relative;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: rgba(255, 255, 255) 0px 13px 27px -5px,
-      rgba(255, 255, 255) 0px 8px 16px -8px;
-  }
-`
+import { FaHeart } from "react-icons/fa"
 
 export const CardImage = styled.img`
   border-radius: 10px;
@@ -23,13 +10,9 @@ export const CardImage = styled.img`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: all 0.3s;
+  transition: all 0.4s;
   object-fit: cover;
   animation: animateThumb 0.5s;
-
-  :hover {
-    opacity: 0.1;
-  }
 
   @keyframes animateThumb {
     from {
@@ -39,13 +22,16 @@ export const CardImage = styled.img`
       opacity: 1;
     }
   }
+
 `
+
 
 export const CardVote = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 3;
+  opacity: 1;
   width: 2.3em;
   height: 1.5em;
   top: 0;
@@ -60,7 +46,6 @@ export const CardVote = styled.div`
 `
 
 export const MovieTitle = styled.h2`
-  visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
   position: absolute;
   z-index: 3;
   bottom: 0;
@@ -69,14 +54,13 @@ export const MovieTitle = styled.h2`
   margin-bottom: 14%;
   padding: 0 2px;
   font-weight: 500;
+  opacity: 0;
   transition: ease-in 0.1s;
   transition: transform 500ms ease;
-  transform: ${({ hoverCard }) =>
-    hoverCard ? "translateY(0)" : "translateY(70%)"};
+  transform: translateY(70%);
 `
 
 export const Released = styled.p`
-  visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
   position: absolute;
   z-index: 3;
   bottom: 0;
@@ -85,48 +69,97 @@ export const Released = styled.p`
   font-weight: 500;
   color: #7b8c98;
   font-size: 1.2em;
+  opacity: 0;
   transition: transform 500ms ease;
-  transform: ${({ hoverCard }) =>
-    hoverCard ? "translateY(0)" : "translateY(70%)"};
+  transform: translateY(70%);
 `
 
 export const RegularHeartIcon = styled(FaRegHeart)`
-  visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
   position: absolute;
-  z-index: 5;
+  z-index: 3;
   top: 3%;
   right: 5%;
-  /* margin-right: 90%; */
-  /* margin-bottom: 5%; */
   color: white;
   width: 1.5em;
   height: 1.5em;
+  opacity: 0;
+  transition: transform 500ms ease;
+  transform: translateX(80%);
+
+  :hover {
+    cursor: pointer;
+    background: red; 
+}
 `
 
-// export const DetailsIcon = styled(MdPageview)`
-//   visibility: ${({ hoverCard }) => (hoverCard ? "visible" : "hidden")};
-//   position: absolute;
-//   color: white;
-//   z-index: 3;
-/* margin-right: 70%;
-  top: 14px;
-  height: 30px;
-  width: 30px;  */
-/* background-color: transparent; */
+export const FilledHeartIcon = styled(FaHeart)`
+  position: absolute;
+  z-index: 3;
+  top: 3%;
+  right: 5%;
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
+  opacity: 0;
+  transition: transform 500ms ease;
 
-/* display: flex;
-  justify-content: center;
-  align-items: center; */
+  :hover {
+    cursor: pointer;
+    background: blue; 
+}
+`
 
-// export const CardVisible = styled.div`
-//   visibility: hidden;
-//   opacity: 0;
-//   transform: translateY(100px);
-//   transition: 0.2s;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   height: 100%;
-// `
+
+export const DetailsIcon = styled(MdPageview)`
+position: absolute;
+  z-index: 3;
+  top: 37%;
+  right: 39%;
+  color: #E2B616;
+  width: 4em;
+  height: 4em;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+`
+
+export const MovieCardContainer = styled.div`
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+
+      ${CardVote} {
+    opacity: 0;
+  }
+
+  ${MovieTitle} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  ${Released} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  ${RegularHeartIcon} {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  ${DetailsIcon} {
+    opacity: 1;
+  }
+
+  ${CardImage} {
+    opacity: 0.1;
+    background-color: blue;
+  }
+  }
+
+`

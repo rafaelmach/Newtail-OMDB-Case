@@ -1,7 +1,8 @@
-import React, { useState } from "react"
 import {
   CardImage,
   CardVote,
+  DetailsIcon,
+  FilledHeartIcon,
   MovieCardContainer,
   MovieTitle,
   RegularHeartIcon,
@@ -10,41 +11,35 @@ import {
 import noCardImage from "../../images/no_image.jpg"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
-  const [hoverCard, sethoverCard] = useState(false)
+  // const [hoverCard, sethoverCard] = useState(false)
 
-  const onHover = () => {
-    sethoverCard(!hoverCard)
-  }
+  // const onHover = () => {
+  //   sethoverCard(!hoverCard)
+  // }
 
   const LikeButton = () => {
     console.log("CLICOU NO LIKE")
   }
 
   return (
-    <MovieCardContainer onMouseEnter={onHover} onMouseLeave={onHover}>
+    <MovieCardContainer>
       <CardImage
         onClick={clickCard}
         src={cardInfo.Poster === "N/A" ? noCardImage : cardInfo.Poster}
         alt="Movie Poster"
       />
 
-      {hoverCard ? null : <CardVote>{cardInfo.imdbRating}</CardVote>}
+      <CardVote>{cardInfo.imdbRating}</CardVote>
 
-      <MovieTitle hoverCard={hoverCard}> {cardInfo.Title} </MovieTitle>
-      <Released hoverCard={hoverCard}> {cardInfo.Year} </Released>
+      <MovieTitle onClick={clickCard}> {cardInfo.Title} </MovieTitle>
+      <Released onClick={clickCard}> {cardInfo.Year} </Released>
 
-      <RegularHeartIcon
-        hoverCard={hoverCard}
-        onMouseEnter={onHover}
-        onMouseLeave={onHover}
-        onClick={LikeButton}
-      />
+      <RegularHeartIcon onClick={LikeButton} />
+      <FilledHeartIcon onClick={LikeButton} />
+      <DetailsIcon onClick={clickCard} />
     </MovieCardContainer>
   )
 }
 
 export default MovieCard
 
-{
-  /* <DetailsIcon alt="details-icon" hoverCard={hoverCard}/> */
-}
