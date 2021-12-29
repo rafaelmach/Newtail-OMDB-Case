@@ -47,8 +47,7 @@ export const PosterImg1 = styled.img`
   width: 330px;
   height: 450px;
   margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px,
-    rgba(255, 255, 255, 0.23) 0px 6px 6px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
   @media screen and (max-width: 800px) {
     width: 90%;
@@ -72,8 +71,7 @@ export const PosterImg2 = styled.img`
   width: 330px;
   height: 450px;
   margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px,
-    rgba(255, 255, 255, 0.23) 0px 6px 6px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
   @media screen and (max-width: 800px) {
     width: 90%;
