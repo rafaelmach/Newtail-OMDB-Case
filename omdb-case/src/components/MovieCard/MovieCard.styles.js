@@ -116,6 +116,7 @@ position: absolute;
   top: 37%;
   right: 39%;
   color: #E2B616;
+  color: #F5C518;
   width: 4em;
   height: 4em;
   opacity: 0;

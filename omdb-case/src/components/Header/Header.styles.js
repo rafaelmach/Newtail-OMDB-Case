@@ -12,7 +12,11 @@ export const GeneralContainer = styled.div`
   /* background-color: blue; */
   width: 100vw;
   height: 70px;
- 
+
+  @media screen and (max-width: 480px) {
+    margin: 0;
+    width: 100%;
+  }
 `
 
 export const SearchBarContainer = styled.div`
@@ -20,6 +24,14 @@ export const SearchBarContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100px;
+  /* background-color: darkgreen; */
+  
+
+  @media screen and (max-width: 480px) {
+    /* margin: 0 20px; */
+    width: 65%;
+    margin-left: 0.8em;
+  }
 `
 
 export const SearchBarWrapper = styled.div`
@@ -40,6 +52,12 @@ export const SearchBarWrapper = styled.div`
     width: 100%;
   }
 
+  @media screen and (max-width: 480px) {
+    /* width: auto; */
+    /* margin-left: 1em; */
+    max-width: 300px;
+  }
+
   input {
     background-color: white;
     margin: 0;
@@ -53,6 +71,12 @@ export const SearchBarWrapper = styled.div`
 
     &:focus {
       outline: none;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 5px 40px;
+      width: 100%;
+      font-size: 18px;
     }
   }
 `
@@ -68,16 +92,20 @@ export const SearchIcon = styled(IoMdSearch)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 480px) {
+    margin-right: 85%;
+    }
 `
 
 export const Logo = styled.img`
   border-radius: 10px;
   width: 200px;
-  margin-right: 10px;
+  margin-right: 13px;
   cursor: pointer;
 
   @media screen and (max-width: 480px) {
-    display:none;
+    display: none;
   }
 `
 
@@ -87,15 +115,14 @@ export const LogoPlayIcon = styled.img`
   margin-right: 10px;
   display: none;
   cursor: pointer;
-  
 
   @media screen and (max-width: 480px) {
-    display:block;
-    margin-left: 10px;
+    display: block;
+    /* margin: 0 1em; */
+    margin: 0;
+    margin-left: 0.1em;
   }
-
 `
-
 
 export const FavoritesIcon = styled(BsFillBookmarkHeartFill)`
   display: flex;
@@ -106,6 +133,14 @@ export const FavoritesIcon = styled(BsFillBookmarkHeartFill)`
   color: #919191;
   padding: 0 3px;
   transition: all 0.5s;
+
+  @media screen and (max-width: 480px) {
+    margin: 0;
+    padding: 0;
+    margin-left: 0.5em;
+    height: 27px;
+  width: 27px;
+  }
 `
 export const FavoritesText = styled.div`
   font-weight: 500;
@@ -133,5 +168,11 @@ export const FavoritesButton = styled.div`
     ${FavoritesIcon} {
       color: #fff;
     }
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 0;
+    padding: 0;
+    width: 3em;
   }
 `
