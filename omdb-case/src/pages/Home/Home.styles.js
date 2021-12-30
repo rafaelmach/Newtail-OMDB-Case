@@ -18,6 +18,13 @@ export const HomeBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 4em;
+  height: 100%;
+
+  @media screen and (max-width: 480px) {
+    height: 680px;
+    margin-top: 0;
+  }
 
   h1 {
     margin-bottom: 0.5em;
@@ -59,9 +66,11 @@ export const PosterImg1 = styled.img`
 
   @media screen and (max-width: 480px) {
     width: 80%;
+    height: auto;
     justify-content: center;
     align-items: center;
-    margin: 25px auto;
+    margin: 0 auto;
+    margin-bottom: 1em;
     max-width: 450px;
   }
 `

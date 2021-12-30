@@ -12,7 +12,7 @@ import {
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import SearchBar from "../../components/SearchBar/SearchBar"
+import SearchBar from "../../components/Header/Header"
 import posterImg1 from "../../images/interstellar_poster.jpg"
 import posterImg2 from "../../images/saving_private_ryan_poster.jpg"
 
