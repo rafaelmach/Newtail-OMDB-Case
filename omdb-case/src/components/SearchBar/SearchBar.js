@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { Wrapper, SearchIcon, Content } from "./SearchBar.styles"
+import { Wrapper, SearchIcon, Content, GeneralContainer, Logo, FavoritesIcon, FavoritesButton, FavoritesText } from "./SearchBar.styles"
+import LogoImg from "../../images/movies_central_logo.png"
+
 
 const SearchBar = ({ placeholder }) => {
   const [state, setState] = useState("")
@@ -22,6 +24,8 @@ const SearchBar = ({ placeholder }) => {
   }, [setSearchTerm, state])
 
   return (
+    <GeneralContainer>
+      <Logo src={LogoImg} alt="Movies Central Logo" />
     <Wrapper>
       <Content>
         <SearchIcon alt="search-icon" />
@@ -33,6 +37,11 @@ const SearchBar = ({ placeholder }) => {
         />
       </Content>
     </Wrapper>
+    <FavoritesButton>
+      <FavoritesIcon />
+      <FavoritesText> Favorites </FavoritesText>
+    </FavoritesButton>
+    </GeneralContainer>
   )
 }
 
