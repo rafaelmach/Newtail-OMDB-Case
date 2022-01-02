@@ -14,11 +14,22 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
   // !!!!!!!!!!!!! >>>>>>>>>  DELETAR { searchTerm } = useContext
-  const { searchTerm } =
+  const { searchTerm, favorites, setFavorites } =
     useContext(GlobalStateContext)
 
-  const LikeButton = () => {
-    console.log("CLICOU NO LIKE")
+  const AddToFavorites = () => {
+    const newFavoriteList = [...favorites, cardInfo]
+    setFavorites(newFavoriteList)
+  }
+
+  const RemoveFromFavorites = () => {
+    const movieIndex = favorites.findIndex(
+      (item) => item.imdbID === cardInfo.imdbID
+    )
+    const newFavoriteList = [...favorites]
+    newFavoriteList.splice(movieIndex, 1)
+
+    setFavorites(newFavoriteList)
   }
 
   return (
@@ -32,14 +43,19 @@ const MovieCard = ({ cardInfo, clickCard }) => {
       <CardVote>{cardInfo.imdbRating}</CardVote>
 
       <MovieTitle onClick={clickCard}> {cardInfo.Title} </MovieTitle>
-      <Released onClick={clickCard} searchStatus={searchTerm}> {cardInfo.Year} </Released>
+      <Released onClick={clickCard} searchStatus={searchTerm}>
+        {" "}
+        {cardInfo.Year}{" "}
+      </Released>
+      {favorites && favorites.find((item) => item.imdbID === cardInfo.imdbID) ? (
+        <FilledHeartIcon onClick={RemoveFromFavorites} />
+      ) : (
+        <RegularHeartIcon onClick={AddToFavorites} />
+      )}
 
-      <RegularHeartIcon onClick={LikeButton} />
-      <FilledHeartIcon onClick={LikeButton} />
       <DetailsIcon onClick={clickCard} />
     </MovieCardContainer>
   )
 }
 
 export default MovieCard
-

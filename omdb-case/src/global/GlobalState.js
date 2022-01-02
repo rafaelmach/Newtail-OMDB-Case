@@ -10,6 +10,7 @@ const GlobalState = (props) => {
   const [movies, setMovies] = useState([])
   const [movieDetails, setMovieDetails] = useState([])
   const [homeMovies, setHomeMovies] = useState([])
+  const [favorites, setFavorites] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const getMovies = (searchTitle) => {
@@ -27,6 +28,7 @@ const GlobalState = (props) => {
     setMovies([])
     setMovieDetails([])
     getMovies(searchTerm)
+    
   }, [searchTerm])
 
   useEffect(() => {
@@ -90,6 +92,8 @@ const GlobalState = (props) => {
     setSearchTerm,
     homeMovies,
     setHomeMovies,
+    favorites,
+    setFavorites
   }
 
   console.log("MOVIES", movies)

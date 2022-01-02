@@ -5,16 +5,12 @@ import {
   GeneralContainer,
   HomeBackground,
   ImagesWrapper,
-  // PosterImg1,
-  // PosterImg2,
   SearchErrorMessage,
 } from "./Home.styles"
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import SearchBar from "../../components/Header/Header"
-import posterImg1 from "../../images/interstellar_poster.jpg"
-import posterImg2 from "../../images/saving_private_ryan_poster.jpg"
+import Header from "../../components/Header/Header"
 
 const Home = () => {
   const [searchError, setsearchError] = useState("")
@@ -67,7 +63,7 @@ const Home = () => {
 
   return (
     <GeneralContainer>
-      <SearchBar placeholder="Search movies ..." />
+      <Header placeholder="Search movies ..." />
       {searchTerm.length === 0 ? (
         <HomeBackground>
           <ImagesWrapper>{homePageCards}</ImagesWrapper>
