@@ -101,7 +101,7 @@ export const FilledHeartIcon = styled(FaHeart)`
   z-index: 3;
   top: 3%;
   right: 5%;
-  color: red;
+  color: #E2B616;
   width: 1.5em;
   height: 1.5em;
   opacity: 0;
@@ -118,7 +118,6 @@ export const DetailsIcon = styled(MdPageview)`
   z-index: 3;
   top: 37%;
   right: 39%;
-  color: #e2b616;
   color: #f5c518;
   width: 4em;
   height: 4em;
