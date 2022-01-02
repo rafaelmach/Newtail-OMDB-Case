@@ -14,9 +14,9 @@ import {
 import LogoImg from "../../images/movies_central_logo.png"
 import LogoIcon from "../../images/logo_play.png"
 import { useHistory } from "react-router"
-import { goToHomePage } from "../../routes/coordinator"
+import { goToFavoritesPage, goToHomePage } from "../../routes/coordinator"
 
-const SearchBar = ({ placeholder }) => {
+const Header = ({ placeholder }) => {
   const [state, setState] = useState("")
   const initial = useRef(true)
   const { setSearchTerm } = useContext(GlobalStateContext)
@@ -24,12 +24,17 @@ const SearchBar = ({ placeholder }) => {
 
   useEffect(() => {
     let searchTime = 700
+    if (history.location.pathname === "/favorites") {
+      searchTime = 1500
+    }
+
     if (initial.current) {
       initial.current = false
       return
     }
     const timer = setTimeout(() => {
       setSearchTerm(state)
+      goToHomePage(history)
     }, searchTime)
 
     return () => clearTimeout(timer)
@@ -38,15 +43,16 @@ const SearchBar = ({ placeholder }) => {
   const clickLogo = () => {
     setState("")
     setSearchTerm("")
+    goToHomePage(history)
   }
 
   return (
     <GeneralContainer>
-      <Logo src={LogoImg} alt="Movies Central Logo" onClick={() => goToHomePage(history), clickLogo} />
+      <Logo src={LogoImg} alt="Movies Central Logo" onClick={clickLogo} />
       <LogoPlayIcon
         src={LogoIcon}
         alt="Movies Central Logo Icon"
-        onClick={() => goToHomePage(history), clickLogo}
+        onClick={clickLogo}
       />
       <SearchBarContainer>
         <SearchBarWrapper>
@@ -59,7 +65,7 @@ const SearchBar = ({ placeholder }) => {
           />
         </SearchBarWrapper>
       </SearchBarContainer>
-      <FavoritesButton>
+      <FavoritesButton onClick={() => goToFavoritesPage(history)}>
         <FavoritesIcon />
         <FavoritesText> Favorites </FavoritesText>
       </FavoritesButton>
@@ -67,4 +73,4 @@ const SearchBar = ({ placeholder }) => {
   )
 }
 
-export default SearchBar
+export default Header

@@ -5,22 +5,18 @@ import {
   GeneralContainer,
   HomeBackground,
   ImagesWrapper,
-  // PosterImg1,
-  // PosterImg2,
   SearchErrorMessage,
 } from "./Home.styles"
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import SearchBar from "../../components/Header/Header"
-import posterImg1 from "../../images/interstellar_poster.jpg"
-import posterImg2 from "../../images/saving_private_ryan_poster.jpg"
+import Header from "../../components/Header/Header"
 
 const Home = () => {
-  const [searchError, setsearchError] = useState("")
-  const { movieDetails, searchTerm, setSearchTerm, homeMovies } =
+  // const [searchError, setsearchError] = useState("")
+  const { movieDetails, searchTerm, setSearchTerm, homeMovies, movies, searchError } =
     useContext(GlobalStateContext)
-  const initial = useRef(true)
+  // const initial = useRef(true)
   const history = useHistory()
 
   const onClickCard = (id) => {
@@ -52,22 +48,23 @@ const Home = () => {
       )
     })
 
-  useEffect(() => {
-    if (initial.current) {
-      initial.current = false
-      return
-    }
-    let timer = setTimeout(() => {
-      setsearchError("Movie title not found! Please search again.")
-    }, 3000)
-    setsearchError("")
+  // useEffect(() => {
+  //   if (initial.current) {
+  //     initial.current = false
+  //     return
+  //   }
+  //   let timer = setTimeout(() => {
+  //     setsearchError("Movie title not found! Please search again.")
+  //   }, 3000)
+  //   setsearchError("")
 
-    return () => clearTimeout(timer)
-  }, [setSearchTerm, searchTerm])
+  //   return () => clearTimeout(timer)
+  // }, [setSearchTerm, searchTerm])
 
+  // console.log("TEXTO NA BUSCA", searchTerm)
   return (
     <GeneralContainer>
-      <SearchBar placeholder="Search movies ..." />
+      <Header placeholder="Search movies ..." />
       {searchTerm.length === 0 ? (
         <HomeBackground>
           <ImagesWrapper>{homePageCards}</ImagesWrapper>
@@ -77,7 +74,7 @@ const Home = () => {
       ) : (
         <CardsContainer>{movieCards}</CardsContainer>
       )}
-      {searchTerm.length > 0 && movieDetails.length === 0 ? (
+      {searchTerm.length > 0 && movies.length === 0 ? (
         <SearchErrorMessage>{searchError}</SearchErrorMessage>
       ) : null}
     </GeneralContainer>

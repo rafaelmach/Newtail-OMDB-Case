@@ -93,7 +93,6 @@ export const RegularHeartIcon = styled(FaRegHeart)`
 
   :hover {
     cursor: pointer;
-    background: red;
   }
 `
 
@@ -102,15 +101,15 @@ export const FilledHeartIcon = styled(FaHeart)`
   z-index: 3;
   top: 3%;
   right: 5%;
-  color: white;
+  color: #E2B616;
   width: 1.5em;
   height: 1.5em;
   opacity: 0;
   transition: transform 500ms ease;
+  transform: translateX(80%);
 
   :hover {
     cursor: pointer;
-    background: blue;
   }
 `
 
@@ -119,7 +118,6 @@ export const DetailsIcon = styled(MdPageview)`
   z-index: 3;
   top: 37%;
   right: 39%;
-  color: #e2b616;
   color: #f5c518;
   width: 4em;
   height: 4em;
@@ -154,6 +152,11 @@ export const MovieCardContainer = styled.div`
     }
 
     ${RegularHeartIcon} {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    ${FilledHeartIcon} {
       opacity: 1;
       transform: translateX(0);
     }

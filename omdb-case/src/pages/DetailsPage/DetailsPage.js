@@ -17,26 +17,42 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 import { useParams } from "react-router-dom"
 
 const DetailsPage = () => {
-  const { movieDetails, isLoading, homeMovies } = useContext(GlobalStateContext)
+  const { movieDetails, isLoading, homeMovies, favorites } = useContext(GlobalStateContext)
   const [selectedMovie, setSelectedMovie] = useState({})
   const history = useHistory()
   const params = useParams()
 
   useEffect(() => {
     if (movieDetails.length > 0) {
-    const currentMovie = movieDetails.find((item) => {
-      return item.imdbID === params.id
-    })
-    console.log("1--", currentMovie)
-    setSelectedMovie(currentMovie)
-    
-  } else {
-    const currentMovie = homeMovies.find((item) => {
-      return item.imdbID === params.id
-    })
-    console.log("2--", currentMovie)
-    setSelectedMovie(currentMovie)
-  }
+      const currentMovie = movieDetails.find((item) => {
+        return item.imdbID === params.id
+      })
+      setSelectedMovie(currentMovie)
+      console.log("1--", currentMovie)
+      if(currentMovie === undefined){
+        const currentMovie = favorites.find((item) => {
+          return item.imdbID === params.id
+        })
+        setSelectedMovie(currentMovie)
+        console.log("4--", currentMovie)
+      }
+      
+
+    } else {
+
+      const currentMovie = homeMovies.find((item) => {
+        return item.imdbID === params.id
+      })
+      setSelectedMovie(currentMovie)
+      console.log("2--", currentMovie)
+      if(currentMovie === undefined){
+        const currentMovie = favorites.find((item) => {
+          return item.imdbID === params.id
+        })
+        setSelectedMovie(currentMovie)
+        console.log("3--", currentMovie)
+      }
+    }
   }, [])
 
   const movieGenres =
@@ -49,20 +65,21 @@ const DetailsPage = () => {
       ) : (
         <>
           <InfoContainer>
-            <MainTitle>{selectedMovie.Title}</MainTitle>
+            <MainTitle>{selectedMovie && selectedMovie.Title}</MainTitle>
             <OriginalTitle>
-              Título original: {selectedMovie.Title}
+              Título original: {selectedMovie && selectedMovie.Title}
             </OriginalTitle>
             <DateRunTime>
-              <p>{selectedMovie.Year}</p>
-              <p>{selectedMovie.Runtime}</p>
+              <p>{selectedMovie && selectedMovie.Year}</p>
+              <p>{selectedMovie && selectedMovie.Runtime}</p>
             </DateRunTime>
 
-            <Overview>{selectedMovie.Plot}</Overview>
+            <Overview>{selectedMovie && selectedMovie.Plot}</Overview>
             <p>
-              Avaliação do TMDB: ⭐ <strong>{selectedMovie.imdbRating}</strong>
+              Avaliação do TMDB: ⭐{" "}
+              <strong>{selectedMovie && selectedMovie.imdbRating}</strong>
             </p>
-            <p>Arrecadação: {selectedMovie.BoxOffice}</p>
+            <p>Arrecadação: {selectedMovie && selectedMovie.BoxOffice}</p>
             <GenderWrap>
               {movieGenres &&
                 movieGenres.map((item) => <p key={item}>{item.trim()}</p>)}
@@ -72,7 +89,7 @@ const DetailsPage = () => {
               aria-label="Botão para Voltar"
             />
           </InfoContainer>
-          <MoviePoster src={`${selectedMovie.Poster}`} />
+          <MoviePoster src={`${selectedMovie && selectedMovie.Poster}`} />
         </>
       )}
     </GeneralContainer>
