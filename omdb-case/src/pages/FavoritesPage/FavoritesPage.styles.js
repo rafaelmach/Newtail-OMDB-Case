@@ -11,6 +11,17 @@ export const CardsContainer = styled.div`
   margin: 30px;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s;
+  animation: animateThumb 0.5s;
+
+  @keyframes animateThumb {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `
 
 export const HomeBackground = styled.div`
