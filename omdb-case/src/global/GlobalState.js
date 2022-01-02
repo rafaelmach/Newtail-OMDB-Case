@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../constants/urls"
 import { API_KEY } from "../constants/apikey"
@@ -11,7 +11,9 @@ const GlobalState = (props) => {
   const [movieDetails, setMovieDetails] = useState([])
   const [homeMovies, setHomeMovies] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [searchError, setsearchError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const initial = useRef(true)
 
   const getMovies = (searchTitle) => {
     axios
@@ -28,7 +30,6 @@ const GlobalState = (props) => {
     setMovies([])
     setMovieDetails([])
     getMovies(searchTerm)
-    
   }, [searchTerm])
 
   useEffect(() => {
@@ -81,6 +82,20 @@ const GlobalState = (props) => {
       })
   }, [])
 
+  useEffect(() => {
+    if (initial.current) {
+      initial.current = false
+      return
+    }
+    let timer = setTimeout(() => {
+      setsearchError("Movie title not found! Please search again.")
+    }, 3000)
+    setsearchError("")
+
+    return () => clearTimeout(timer)
+  }, [setSearchTerm, searchTerm])
+
+
   const data = {
     movies,
     setMovies,
@@ -93,12 +108,13 @@ const GlobalState = (props) => {
     homeMovies,
     setHomeMovies,
     favorites,
-    setFavorites
+    setFavorites,
+    searchError
   }
 
-  console.log("MOVIES", movies)
-  console.log("DETAILS", movieDetails)
-  console.log("2 FILMES", homeMovies)
+  // console.log("MOVIES", movies)
+  // console.log("DETAILS", movieDetails)
+  // console.log("2 FILMES", homeMovies)
 
   return (
     <GlobalStateContext.Provider value={data}>

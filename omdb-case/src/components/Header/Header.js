@@ -24,12 +24,17 @@ const Header = ({ placeholder }) => {
 
   useEffect(() => {
     let searchTime = 700
+    if (history.location.pathname === "/favorites") {
+      searchTime = 1500
+    }
+
     if (initial.current) {
       initial.current = false
       return
     }
     const timer = setTimeout(() => {
       setSearchTerm(state)
+      goToHomePage(history)
     }, searchTime)
 
     return () => clearTimeout(timer)
@@ -43,11 +48,7 @@ const Header = ({ placeholder }) => {
 
   return (
     <GeneralContainer>
-      <Logo
-        src={LogoImg}
-        alt="Movies Central Logo"
-        onClick={clickLogo}
-      />
+      <Logo src={LogoImg} alt="Movies Central Logo" onClick={clickLogo} />
       <LogoPlayIcon
         src={LogoIcon}
         alt="Movies Central Logo Icon"
