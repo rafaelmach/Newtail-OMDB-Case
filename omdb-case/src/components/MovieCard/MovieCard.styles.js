@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 import { MdPageview } from "react-icons/md"
 import { FaRegHeart } from "react-icons/fa"
 import { FaHeart } from "react-icons/fa"
@@ -22,9 +22,7 @@ export const CardImage = styled.img`
       opacity: 1;
     }
   }
-
 `
-
 
 export const CardVote = styled.div`
   display: flex;
@@ -60,11 +58,11 @@ export const MovieTitle = styled.h2`
   transform: translateY(70%);
 `
 
-export const Released = styled.p`
+export const Released = styled.span`
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   bottom: 0;
-  margin-left: 5%;
+  margin-left: 5.9%;
   margin-bottom: 5%;
   font-weight: 500;
   color: #7b8c98;
@@ -72,7 +70,14 @@ export const Released = styled.p`
   opacity: 0;
   transition: transform 500ms ease;
   transform: translateY(70%);
-`
+  `
+
+  /// DELETAR 3 LINHAS ABAIXO ... SÓ UM EXEMPLO DE COMO PODEMOS RECEBER PROPS
+  /// TODA VEZ QUE DIGITAMOS ALGUMA COISA NO CAMPO DE BUSCA ... 
+  
+   /* bottom: ${({ searchStatus }) => (searchStatus === "" ? "1%" : "0")};
+  left: ${({ searchStatus }) => (searchStatus === "" ? "5.5%" : "0")}; */
+  /* font-size: ${({ searchStatus }) => (searchStatus === "" ? "1.2rem" : "1.2rem")}; */
 
 export const RegularHeartIcon = styled(FaRegHeart)`
   position: absolute;
@@ -88,8 +93,8 @@ export const RegularHeartIcon = styled(FaRegHeart)`
 
   :hover {
     cursor: pointer;
-    background: red; 
-}
+    background: red;
+  }
 `
 
 export const FilledHeartIcon = styled(FaHeart)`
@@ -105,18 +110,17 @@ export const FilledHeartIcon = styled(FaHeart)`
 
   :hover {
     cursor: pointer;
-    background: blue; 
-}
+    background: blue;
+  }
 `
 
-
 export const DetailsIcon = styled(MdPageview)`
-position: absolute;
+  position: absolute;
   z-index: 3;
   top: 37%;
   right: 39%;
-  color: #E2B616;
-  color: #F5C518;
+  color: #e2b616;
+  color: #f5c518;
   width: 4em;
   height: 4em;
   opacity: 0;
@@ -132,35 +136,35 @@ export const MovieCardContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px,
+      rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
 
-      ${CardVote} {
-    opacity: 0;
-  }
+    ${CardVote} {
+      opacity: 0;
+    }
 
-  ${MovieTitle} {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    ${MovieTitle} {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  ${Released} {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    ${Released} {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  ${RegularHeartIcon} {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    ${RegularHeartIcon} {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-  ${DetailsIcon} {
-    opacity: 1;
-  }
+    ${DetailsIcon} {
+      opacity: 1;
+    }
 
-  ${CardImage} {
-    opacity: 0.1;
-    background-color: blue;
+    ${CardImage} {
+      opacity: 0.1;
+      background-color: blue;
+    }
   }
-  }
-
 `
