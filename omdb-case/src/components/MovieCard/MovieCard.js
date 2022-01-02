@@ -9,13 +9,13 @@ import {
   Released,
 } from "./MovieCard.styles"
 import noCardImage from "../../images/no_image.jpg"
+import { useContext } from "react"
+import GlobalStateContext from "../../global/GlobalStateContext"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
-  // const [hoverCard, sethoverCard] = useState(false)
-
-  // const onHover = () => {
-  //   sethoverCard(!hoverCard)
-  // }
+  // !!!!!!!!!!!!! >>>>>>>>>  DELETAR { searchTerm } = useContext
+  const { searchTerm } =
+    useContext(GlobalStateContext)
 
   const LikeButton = () => {
     console.log("CLICOU NO LIKE")
@@ -32,7 +32,7 @@ const MovieCard = ({ cardInfo, clickCard }) => {
       <CardVote>{cardInfo.imdbRating}</CardVote>
 
       <MovieTitle onClick={clickCard}> {cardInfo.Title} </MovieTitle>
-      <Released onClick={clickCard}> {cardInfo.Year} </Released>
+      <Released onClick={clickCard} searchStatus={searchTerm}> {cardInfo.Year} </Released>
 
       <RegularHeartIcon onClick={LikeButton} />
       <FilledHeartIcon onClick={LikeButton} />

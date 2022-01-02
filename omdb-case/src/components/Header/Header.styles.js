@@ -8,10 +8,10 @@ export const GeneralContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   background-color: #0b1014;
-  border-bottom: solid 3px #232323;
-  /* background-color: blue; */
   width: 100vw;
-  height: 70px;
+  height: 75px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 12px -2px,
+    rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
 
   @media screen and (max-width: 480px) {
     margin: 0;
@@ -25,7 +25,6 @@ export const SearchBarContainer = styled.div`
   justify-content: center;
   height: 100px;
   /* background-color: darkgreen; */
-  
 
   @media screen and (max-width: 480px) {
     /* margin: 0 20px; */
@@ -95,7 +94,7 @@ export const SearchIcon = styled(IoMdSearch)`
 
   @media screen and (max-width: 480px) {
     margin-right: 85%;
-    }
+  }
 `
 
 export const Logo = styled.img`
@@ -139,7 +138,7 @@ export const FavoritesIcon = styled(BsFillBookmarkHeartFill)`
     padding: 0;
     margin-left: 0.5em;
     height: 27px;
-  width: 27px;
+    width: 27px;
   }
 `
 export const FavoritesText = styled.div`

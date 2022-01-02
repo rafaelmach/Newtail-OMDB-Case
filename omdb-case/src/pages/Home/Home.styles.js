@@ -44,8 +44,13 @@ export const HomeBackground = styled.div`
 `
 
 export const ImagesWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  align-items: center; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  justify-content: center;
   align-items: center;
 `
 
@@ -54,7 +59,8 @@ export const PosterImg1 = styled.img`
   width: 330px;
   height: 450px;
   margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
   @media screen and (max-width: 800px) {
     width: 90%;
@@ -80,7 +86,8 @@ export const PosterImg2 = styled.img`
   width: 330px;
   height: 450px;
   margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
   @media screen and (max-width: 800px) {
     width: 90%;
@@ -96,9 +103,15 @@ export const PosterImg2 = styled.img`
 `
 
 export const SearchErrorMessage = styled.p`
-  background-color: blue;
-  font-weight: 400;
+  font-weight: 500;
   color: #7b8c98;
-  font-size: 1.4em;
+  font-size: 2.1rem;
   text-align: center;
+  margin: 5em 1em;
+  line-height: 1.5em;
+
+  @media screen and (max-width: 480px) {
+    margin: 1em 2em;
+    font-size: 1.7rem;
+  }
 `

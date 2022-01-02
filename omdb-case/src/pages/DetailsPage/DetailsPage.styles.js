@@ -85,7 +85,6 @@ export const GenderWrap = styled.div`
 
 export const DateRunTime = styled.div`
     display: flex;
-    justify-content: space-around;
     justify-content: left;
 
     p {

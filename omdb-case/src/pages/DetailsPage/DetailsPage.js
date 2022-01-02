@@ -17,16 +17,26 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 import { useParams } from "react-router-dom"
 
 const DetailsPage = () => {
-  const { movieDetails, isLoading } = useContext(GlobalStateContext)
+  const { movieDetails, isLoading, homeMovies } = useContext(GlobalStateContext)
   const [selectedMovie, setSelectedMovie] = useState({})
   const history = useHistory()
   const params = useParams()
 
   useEffect(() => {
+    if (movieDetails.length > 0) {
     const currentMovie = movieDetails.find((item) => {
       return item.imdbID === params.id
     })
+    console.log("1--", currentMovie)
     setSelectedMovie(currentMovie)
+    
+  } else {
+    const currentMovie = homeMovies.find((item) => {
+      return item.imdbID === params.id
+    })
+    console.log("2--", currentMovie)
+    setSelectedMovie(currentMovie)
+  }
   }, [])
 
   const movieGenres =
