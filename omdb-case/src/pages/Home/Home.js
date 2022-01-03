@@ -6,6 +6,7 @@ import {
   HomeBackground,
   ImagesWrapper,
   SearchErrorMessage,
+  TextWrapper,
 } from "./Home.styles"
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
@@ -13,10 +14,8 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 import Header from "../../components/Header/Header"
 
 const Home = () => {
-  // const [searchError, setsearchError] = useState("")
   const { movieDetails, searchTerm, setSearchTerm, homeMovies, movies, searchError } =
     useContext(GlobalStateContext)
-  // const initial = useRef(true)
   const history = useHistory()
 
   const onClickCard = (id) => {
@@ -48,28 +47,15 @@ const Home = () => {
       )
     })
 
-  // useEffect(() => {
-  //   if (initial.current) {
-  //     initial.current = false
-  //     return
-  //   }
-  //   let timer = setTimeout(() => {
-  //     setsearchError("Movie title not found! Please search again.")
-  //   }, 3000)
-  //   setsearchError("")
-
-  //   return () => clearTimeout(timer)
-  // }, [setSearchTerm, searchTerm])
-
-  // console.log("TEXTO NA BUSCA", searchTerm)
   return (
     <GeneralContainer>
       <Header placeholder="Search movies ..." />
       {searchTerm.length === 0 ? (
         <HomeBackground>
           <ImagesWrapper>{homePageCards}</ImagesWrapper>
-          <h1>Don't know what to search?</h1>
-          <p>Here's an offer you can't refuse</p>
+          <TextWrapper><h1>Don't know what to search?</h1>
+          <p>Here's an offer you can't refuse</p></TextWrapper>
+          
         </HomeBackground>
       ) : (
         <CardsContainer>{movieCards}</CardsContainer>
