@@ -24,6 +24,7 @@ export const GeneralContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     height: 100%;
+    margin-bottom: 2em;
   }
 `
 
@@ -37,7 +38,6 @@ export const InfoContainer = styled.div`
   min-width: 300px;
   justify-content: center;
   /* background-color: #313131; */
-  border: 1px solid white;
   border-radius: 10px;
   margin-right: 30px;
   height: auto;
@@ -52,6 +52,7 @@ export const MainTitle = styled.div`
   line-height: 1.1em;
   font-weight: 500;
   font-size: 3rem;
+  margin: 1rem 0;
 
   @media screen and (max-width: 815px) {
     line-height: 1.2em;
@@ -82,6 +83,7 @@ export const IMDbWrapper = styled.div`
   border-radius: 4px;
   letter-spacing: 1px;
   margin-right: 1em;
+  margin-bottom: 1.2em;
 `
 
 export const ImdbLogo = styled.img`
@@ -118,7 +120,7 @@ export const RTomatoesWrapper = styled.div`
 export const RTomatoesLogo = styled.img`
   width: 45px;
   padding: 6px;
-  background: #F93A1E;
+  background: #f93a1e;
   border-radius: 4px 0px 0px 4px;
   display: flex;
   justify-content: left;
@@ -132,15 +134,11 @@ export const RTomatoesRating = styled.p`
   margin: auto;
 `
 
-
 export const RegHeartIcon = styled(FaRegHeart)`
-  color: #7B8C98;
+  color: #7b8c98;
   width: 21px;
   height: 21px;
   margin-left: 1em;
-  /* opacity: 0;
-  transition: transform 500ms ease;
-  transform: translateX(80%); */
 
   :hover {
     cursor: pointer;
@@ -148,14 +146,10 @@ export const RegHeartIcon = styled(FaRegHeart)`
 `
 
 export const FillHeartIcon = styled(FaHeart)`
-  color: #E2B616;
+  color: #e2b616;
   width: 21px;
   height: 21px;
   margin-left: 1em;
-  /* margin-right: 1em; */
-  /* opacity: 0;
-  transition: transform 500ms ease;
-  transform: translateX(80%); */
 
   :hover {
     cursor: pointer;
@@ -182,7 +176,7 @@ export const LikeButtonWrapper = styled.div`
   height: 42px;
   border: 1px solid #171c21;
   border-radius: 4px;
-  color: #7B8C98;
+  color: #7b8c98;
   transition: all 0.5s;
 
   :hover {
@@ -196,36 +190,85 @@ export const LikeButtonWrapper = styled.div`
     ${LikeButtonText} {
       color: #fff;
     }
-
-
   }
 `
 
-
+export const PlotTitle = styled.h3`
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  color: #7b8c98;
+  font-weight: 500;
+  font-size: 1.25rem;
+`
 
 export const Overview = styled.p`
   text-align: justify;
-  line-height: 1.7;
+  line-height: 1.7rem;
+  margin: 0.5em 0;
+  font-weight: 400;
+  font-size: 1.1rem;
 `
 
-export const GenderWrap = styled.div`
+export const CastGenreDirectorContainer = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 600px;
+  margin: 1em 0;
+`
 
-  p {
-    margin-right: 50px;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
+export const GenreWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    color: #7b8c98;
+    font-weight: 500;
+    font-size: 1.25rem;
   }
 
-  @media screen and (max-width: 810px) {
-    p {
-      margin-right: 20px;
-    }
+  p {
+    line-height: 0;
+    margin: 0.7em 0;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+`
+
+export const CastWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2em;
+
+  h3 {
+    color: #7b8c98;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  p {
+    line-height: 0;
+    margin: 0.7em 0;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+`
+
+export const DirectorWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* max-width: 600px; */
+
+  h3 {
+    color: #7b8c98;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  p {
+    line-height: 0;
+    margin: 0.7em 0;
+    font-weight: 400;
+    font-size: 1.1rem;
   }
 `
 
@@ -274,7 +317,7 @@ export const MoviePoster = styled.img`
     rgba(255, 255, 255, 0.23) 0px 6px 6px;
 
   @media screen and (max-width: 800px) {
-    width: 90%;
+    width: 85%;
     height: 65%;
     justify-content: center;
     margin: 10px;
@@ -286,7 +329,6 @@ export const BackButton = styled(BsArrowLeft)`
   cursor: pointer;
   width: 30px;
   height: 30px;
-  /* margin-bottom: 1em; */
   color: #7b8c98;
   transition: all 0.5s;
 

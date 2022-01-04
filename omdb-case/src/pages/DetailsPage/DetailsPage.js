@@ -6,7 +6,7 @@ import {
   MoviePoster,
   Overview,
   MainTitle,
-  GenderWrap,
+  GenreWrap,
   DateRunTimeWrapper,
   BackButton,
   RunTime,
@@ -23,6 +23,10 @@ import {
   FillHeartIcon,
   RegHeartIcon,
   LikeButtonText,
+  PlotTitle,
+  CastGenreDirectorContainer,
+  CastWrap,
+  DirectorWrap,
 } from "./DetailsPage.styles"
 import { goBack } from "../../routes/coordinator"
 import Loading from "../../components/Loading/Loading"
@@ -88,8 +92,14 @@ const DetailsPage = () => {
   const movieGenres =
     selectedMovie && selectedMovie.Genre && selectedMovie.Genre?.split(",")
 
+    const movieCast =
+    selectedMovie && selectedMovie.Actors && selectedMovie.Actors?.split(",")  
+
+    const movieDirector =
+    selectedMovie && selectedMovie.Director && selectedMovie.Director?.split(",") 
+
+
   const inFavorites = favorites && favorites.find((item) => item.imdbID === params.id) ? true : false
-  // teste!!!
 
   // console.log("ARRAY RATINGS", selectedMovie && selectedMovie.Ratings && selectedMovie.Ratings[0].Value)
   console.log("SELECTED MOVIE", selectedMovie && selectedMovie)
@@ -148,16 +158,26 @@ const DetailsPage = () => {
                 </LikeButtonText>
               </LikeButtonWrapper>
             </RatingsContainer>
+            <PlotTitle>Plot</PlotTitle>
             <Overview>{selectedMovie && selectedMovie.Plot}</Overview>
-            <p>
-              Avaliação do TMDB: ⭐{" "}
-              <strong>{selectedMovie && selectedMovie.imdbRating}</strong>
-            </p>
-            <p>Arrecadação: {selectedMovie && selectedMovie.BoxOffice}</p>
-            <GenderWrap>
+            <CastGenreDirectorContainer>
+            <CastWrap>
+              <h3> Cast </h3>
+              {movieCast &&
+                movieCast.map((item) => <p key={item}>{item.trim()}</p>)}
+            </CastWrap>
+            <GenreWrap>
+            <h3> Genre </h3>
               {movieGenres &&
                 movieGenres.map((item) => <p key={item}>{item.trim()}</p>)}
-            </GenderWrap>
+            </GenreWrap>
+            <DirectorWrap>
+            <h3> Director </h3>
+              {movieDirector &&
+                movieDirector.map((item) => <p key={item}>{item.trim()}</p>)}
+            </DirectorWrap>
+            </CastGenreDirectorContainer>
+            
           </InfoContainer>
           <MoviePoster src={`${selectedMovie && selectedMovie.Poster}`} />
         </>
