@@ -8,6 +8,17 @@ export const GeneralContainer = styled.div`
   align-items: center;
   height: 100vh;
   overflow-x: hidden;
+  transition: all 0.7s;
+  animation: animateThumb 0.7s;
+
+  @keyframes animateThumb {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 800px) {
     height: 100%;
@@ -63,7 +74,7 @@ export const IMDbWrapper = styled.div`
   font-weight: 400;
   font-size: 1rem;
   width: 145px;
-  height: 40px;
+  height: 42px;
   border: 1px solid #171c21;
   border-radius: 4px;
   letter-spacing: 1px;
@@ -71,7 +82,7 @@ export const IMDbWrapper = styled.div`
 
 export const ImdbLogo = styled.img`
   width: 50px;
-  padding: 10px;
+  padding: 11px;
   background: #ff9b39;
   border-radius: 4px 0px 0px 4px;
   display: flex;
