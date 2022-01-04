@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { BsArrowLeft } from "react-icons/bs"
+import { FaRegHeart } from "react-icons/fa"
+import { FaHeart } from "react-icons/fa"
 
 export const GeneralContainer = styled.div`
   display: flex;
@@ -65,6 +67,7 @@ export const MainTitle = styled.div`
 export const RatingsContainer = styled.div`
   display: flex;
   margin: 1em 0;
+  flex-wrap: wrap;
 `
 
 export const IMDbWrapper = styled.div`
@@ -78,6 +81,7 @@ export const IMDbWrapper = styled.div`
   border: 1px solid #171c21;
   border-radius: 4px;
   letter-spacing: 1px;
+  margin-right: 1em;
 `
 
 export const ImdbLogo = styled.img`
@@ -96,6 +100,108 @@ export const ImdbRating = styled.p`
   text-align: center;
   margin: auto;
 `
+
+export const RTomatoesWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  width: 115px;
+  height: 42px;
+  border: 1px solid #171c21;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  margin-right: 1em;
+`
+
+export const RTomatoesLogo = styled.img`
+  width: 45px;
+  padding: 6px;
+  background: #F93A1E;
+  border-radius: 4px 0px 0px 4px;
+  display: flex;
+  justify-content: left;
+`
+
+export const RTomatoesRating = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+`
+
+
+export const RegHeartIcon = styled(FaRegHeart)`
+  color: #7B8C98;
+  width: 21px;
+  height: 21px;
+  margin-left: 1em;
+  /* opacity: 0;
+  transition: transform 500ms ease;
+  transform: translateX(80%); */
+
+  :hover {
+    cursor: pointer;
+  }
+`
+
+export const FillHeartIcon = styled(FaHeart)`
+  color: #E2B616;
+  width: 21px;
+  height: 21px;
+  margin-left: 1em;
+  /* margin-right: 1em; */
+  /* opacity: 0;
+  transition: transform 500ms ease;
+  transform: translateX(80%); */
+
+  :hover {
+    cursor: pointer;
+  }
+`
+
+export const LikeButtonText = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+`
+
+export const LikeButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  width: 180px;
+  width: ${({ inFavorites }) => (inFavorites ? "170px" : "180px")};
+  height: 42px;
+  border: 1px solid #171c21;
+  border-radius: 4px;
+  color: #7B8C98;
+  transition: all 0.5s;
+
+  :hover {
+    cursor: pointer;
+    background-color: #252525;
+
+    ${RegHeartIcon} {
+      color: #fff;
+    }
+
+    ${LikeButtonText} {
+      color: #fff;
+    }
+
+
+  }
+`
+
+
 
 export const Overview = styled.p`
   text-align: justify;

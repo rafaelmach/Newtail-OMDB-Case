@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react"
+import React, { useContext } from "react"
 import { goToDetailsPage } from "../../routes/coordinator"
 import {
   CardsContainer,
@@ -14,7 +14,7 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 import Header from "../../components/Header/Header"
 
 const Home = () => {
-  const { movieDetails, searchTerm, setSearchTerm, homeMovies, movies, searchError } =
+  const { movieDetails, searchTerm, homeMovies, movies, searchError } =
     useContext(GlobalStateContext)
   const history = useHistory()
 

@@ -159,6 +159,7 @@ export const FavoritesButton = styled.div`
   width: 7em;
   padding: 9px;
   border-radius: 4px;
+  transition: all 0.5s;
 
   :hover {
     background-color: #252525;

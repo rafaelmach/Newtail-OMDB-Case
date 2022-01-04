@@ -13,16 +13,16 @@ import { useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
-  // !!!!!!!!!!!!! >>>>>>>>>  DELETAR { searchTerm } = useContext
-  const { searchTerm, favorites, setFavorites } =
+  
+  const { favorites, setFavorites } =
     useContext(GlobalStateContext)
 
-  const AddToFavorites = () => {
+  const addToFavorites = () => {
     const newFavoriteList = [...favorites, cardInfo]
     setFavorites(newFavoriteList)
   }
 
-  const RemoveFromFavorites = () => {
+  const removeFromFavorites = () => {
     const movieIndex = favorites.findIndex(
       (item) => item.imdbID === cardInfo.imdbID
     )
@@ -43,14 +43,14 @@ const MovieCard = ({ cardInfo, clickCard }) => {
       <CardVote>{cardInfo.imdbRating}</CardVote>
 
       <MovieTitle onClick={clickCard}> {cardInfo.Title} </MovieTitle>
-      <Released onClick={clickCard} searchStatus={searchTerm}>
+      <Released onClick={clickCard} >
         {" "}
         {cardInfo.Year}{" "}
       </Released>
       {favorites && favorites.find((item) => item.imdbID === cardInfo.imdbID) ? (
-        <FilledHeartIcon onClick={RemoveFromFavorites} />
+        <FilledHeartIcon onClick={removeFromFavorites} />
       ) : (
-        <RegularHeartIcon onClick={AddToFavorites} />
+        <RegularHeartIcon onClick={addToFavorites} />
       )}
 
       <DetailsIcon onClick={clickCard} />
