@@ -181,7 +181,7 @@ export const LikeButtonWrapper = styled.div`
 
   :hover {
     cursor: pointer;
-    background-color: #252525;
+    background-color: #2C2C2C;
 
     ${RegHeartIcon} {
       color: #fff;

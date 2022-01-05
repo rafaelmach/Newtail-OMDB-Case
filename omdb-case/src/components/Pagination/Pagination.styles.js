@@ -24,16 +24,18 @@ export const PaginationButton = styled.button`
   color: #8c9ba6;
   padding: 10px 22px;
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
   border-radius: 8px;
   box-sizing: border-box;
   margin: 0 0.2em;
   margin-bottom: 0.5em;
   transition: all 300ms;
+  font-family: "Roboto", sans-serif;
 
   &:hover {
     cursor: pointer;
-    background-color: #252525;
+    background-color: #2C2C2C;
     color: #fff;
   }
 
