@@ -46,14 +46,14 @@ export const SearchBarWrapper = styled.div`
   color: black;
   /* background-color: blue; */
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1400px) {
     min-width: 0;
-    width: 100%;
+    width: 40vw;
   }
 
   @media screen and (max-width: 480px) {
-    /* width: auto; */
-    /* margin-left: 1em; */
+    min-width: 0;
+    width: 100%;
     max-width: 300px;
   }
 
@@ -91,6 +91,14 @@ export const SearchIcon = styled(IoMdSearch)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    margin-right: 87%;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-right: 80%;
+  }
 
   @media screen and (max-width: 480px) {
     margin-right: 85%;
