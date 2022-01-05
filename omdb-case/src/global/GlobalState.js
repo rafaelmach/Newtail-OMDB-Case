@@ -13,13 +13,17 @@ const GlobalState = (props) => {
   const [favorites, setFavorites] = useState([])
   const [searchError, setsearchError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState("1")
   const initial = useRef(true)
 
   const getMovies = (searchTitle) => {
     axios
-      .get(`${BASE_URL}/?s=${searchTitle}&page=1&apikey=${API_KEY}`)
+      .get(
+        `${BASE_URL}/?s=${searchTitle}&page=${currentPage}&apikey=${API_KEY}`
+      )
       .then((res) => {
         if (res.data.Response === "True") setMovies(res.data.Search)
+        console.log("PAGE DENTRO DO GET", currentPage)
       })
       .catch((err) => {
         console.log(err)
@@ -30,7 +34,24 @@ const GlobalState = (props) => {
     setMovies([])
     setMovieDetails([])
     getMovies(searchTerm)
+  }, [searchTerm, currentPage])
+
+  useEffect(() => {
+    setCurrentPage("1")
   }, [searchTerm])
+
+  useEffect(() => {
+    if (initial.current) {
+      initial.current = false
+      return
+    }
+    let timer = setTimeout(() => {
+      setsearchError("Movie title not found! Please search again.")
+    }, 2000)
+    setsearchError("")
+
+    return () => clearTimeout(timer)
+  }, [setSearchTerm, searchTerm])
 
   useEffect(() => {
     const newList = []
@@ -38,7 +59,9 @@ const GlobalState = (props) => {
       movies.forEach((item) => {
         setIsLoading(true)
         axios
-          .get(`${BASE_URL}/?i=${item.imdbID}&plot=full&apikey=${API_KEY}`)
+          .get(
+            `${BASE_URL}/?i=${item.imdbID}&plot=full&page=2&apikey=${API_KEY}`
+          )
           .then((res) => {
             newList.push(res.data)
             if (newList.length === 10) {
@@ -46,6 +69,7 @@ const GlobalState = (props) => {
                 return a.Year - b.Year
               })
               setMovieDetails(orderedList)
+
               setIsLoading(false)
             }
           })
@@ -54,13 +78,7 @@ const GlobalState = (props) => {
             console.log(error)
           })
       })
-  }, [movies])
-
-  // INÍCIO DO CÓDIGO 3a REQUISIÇÃO ... 2 cards da HomePage
-  // Um objeto contendo os 2 Id's [ Interstelar + Private Ryan ] ... aí eu faço um forEach nesse Objeto
-  // ... pra cada item desse Array eu vou fazer uma requisição e dar um homeMovieList.push(res.data)
-  // Vou ter uma lista salva na const homeMovieList ... aí é só dar um setHomeMovies e vou ter os dados
-  // dos 2 filmes salvos no estado ... na variável HomeMovies
+  }, [movies, currentPage])
 
   useEffect(() => {
     const homeMovieList = []
@@ -71,7 +89,6 @@ const GlobalState = (props) => {
           .get(`${BASE_URL}/?i=${item.movieId}&plot=full&apikey=${API_KEY}`)
           .then((res) => {
             homeMovieList.push(res.data)
-            // setMovieDetails([])
             setHomeMovies(homeMovieList)
             setIsLoading(false)
           })
@@ -81,20 +98,6 @@ const GlobalState = (props) => {
           })
       })
   }, [])
-
-  useEffect(() => {
-    if (initial.current) {
-      initial.current = false
-      return
-    }
-    let timer = setTimeout(() => {
-      setsearchError("Movie title not found! Please search again.")
-    }, 3000)
-    setsearchError("")
-
-    return () => clearTimeout(timer)
-  }, [setSearchTerm, searchTerm])
-
 
   const data = {
     movies,
@@ -109,12 +112,13 @@ const GlobalState = (props) => {
     setHomeMovies,
     favorites,
     setFavorites,
-    searchError
+    searchError,
+    currentPage,
+    setCurrentPage,
   }
 
-  // console.log("MOVIES", movies)
   console.log("DETAILS", movieDetails)
-  // console.log("2 FILMES", homeMovies)
+  console.log("GLOBAL PAGE", currentPage)
 
   return (
     <GlobalStateContext.Provider value={data}>

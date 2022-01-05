@@ -61,63 +61,12 @@ export const TextWrapper = styled.div`
 
 
 export const ImagesWrapper = styled.div`
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
   justify-content: center;
   align-items: center;
 `
-
-// export const PosterImg1 = styled.img`
-//   border-radius: 10px;
-//   width: 330px;
-//   height: 450px;
-//   margin: 30px;
-//   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
-//     rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
-
-//   @media screen and (max-width: 800px) {
-//     width: 90%;
-//     height: 65%;
-//     justify-content: center;
-//     margin: 10px;
-//     max-width: 450px;
-//   }
-
-//   @media screen and (max-width: 480px) {
-//     width: 80%;
-//     height: auto;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 0 auto;
-//     margin-bottom: 1em;
-//     max-width: 450px;
-//   }
-// `
-
-// export const PosterImg2 = styled.img`
-//   border-radius: 10px;
-//   width: 330px;
-//   height: 450px;
-//   margin: 30px;
-//   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
-//     rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
-
-//   @media screen and (max-width: 800px) {
-//     width: 90%;
-//     height: 65%;
-//     justify-content: center;
-//     margin: 10px;
-//     max-width: 450px;
-//   }
-
-//   @media screen and (max-width: 480px) {
-//     display: none;
-//   }
-// `
 
 export const SearchErrorMessage = styled.p`
   font-weight: 500;
@@ -126,6 +75,17 @@ export const SearchErrorMessage = styled.p`
   text-align: center;
   margin: 5em 1em;
   line-height: 1.5em;
+  transition: all 2s;
+  animation: animateThumb 2s;
+
+  @keyframes animateThumb {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 480px) {
     margin: 1em 2em;
