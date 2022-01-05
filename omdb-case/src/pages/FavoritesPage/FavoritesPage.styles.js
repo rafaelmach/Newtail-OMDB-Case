@@ -47,10 +47,10 @@ export const EmptyList = styled.div`
   }
 
   h3 {
-    line-height: 1em;
     font-weight: 700;
     font-size: 2.1rem;
-    margin: 0.5em;
+    margin: 0.6em;
+    text-align: center;
   }
 
   p {
@@ -62,19 +62,16 @@ export const EmptyList = styled.div`
     margin: 0.1em;
   }
 
-    @media screen and (max-width: 500px) {
-      max-width: none;
+  @media screen and (max-width: 500px) {
+    max-width: none;
 
-      h3 {
-    font-size: 1.8rem;
-  }
+    h3 {
+      font-size: 1.6rem;
+    }
 
-  p {
-    font-size: 1.4rem;
+    p {
+      font-size: 1.3rem;
+      margin: 0.1em 0.4em;
+    }
   }
-  }
-
-  
 `
-
-
