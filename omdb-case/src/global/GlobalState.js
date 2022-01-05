@@ -113,7 +113,7 @@ const GlobalState = (props) => {
   }
 
   // console.log("MOVIES", movies)
-  // console.log("DETAILS", movieDetails)
+  console.log("DETAILS", movieDetails)
   // console.log("2 FILMES", homeMovies)
 
   return (

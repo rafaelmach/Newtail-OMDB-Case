@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
+
 `
 
 export const CardsContainer = styled.div`
@@ -21,27 +22,43 @@ export const HomeBackground = styled.div`
   margin-top: 4em;
   height: 100%;
 
+
   @media screen and (max-width: 480px) {
-    height: 680px;
-    margin-top: 0;
+    height: 1070px;
+    margin-top: 1em;
+    flex-direction: column-reverse;
   }
 
+`
+
+export const TextWrapper = styled.div`
+
   h1 {
+    margin: 0 1em;
     margin-bottom: 0.5em;
     line-height: 1em;
     font-weight: 700;
     text-align: center;
-    /* font-size: 1.7rem; */
+    font-size: 2.1rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.6rem;
+  }
   }
 
   p {
     margin: 0;
     font-weight: 400;
     color: #7b8c98;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     text-align: center;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.3rem;
+  }
   }
 `
+
 
 export const ImagesWrapper = styled.div`
   /* display: flex;
@@ -54,53 +71,53 @@ export const ImagesWrapper = styled.div`
   align-items: center;
 `
 
-export const PosterImg1 = styled.img`
-  border-radius: 10px;
-  width: 330px;
-  height: 450px;
-  margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+// export const PosterImg1 = styled.img`
+//   border-radius: 10px;
+//   width: 330px;
+//   height: 450px;
+//   margin: 30px;
+//   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
+//     rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
-  @media screen and (max-width: 800px) {
-    width: 90%;
-    height: 65%;
-    justify-content: center;
-    margin: 10px;
-    max-width: 450px;
-  }
+//   @media screen and (max-width: 800px) {
+//     width: 90%;
+//     height: 65%;
+//     justify-content: center;
+//     margin: 10px;
+//     max-width: 450px;
+//   }
 
-  @media screen and (max-width: 480px) {
-    width: 80%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    margin-bottom: 1em;
-    max-width: 450px;
-  }
-`
+//   @media screen and (max-width: 480px) {
+//     width: 80%;
+//     height: auto;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 0 auto;
+//     margin-bottom: 1em;
+//     max-width: 450px;
+//   }
+// `
 
-export const PosterImg2 = styled.img`
-  border-radius: 10px;
-  width: 330px;
-  height: 450px;
-  margin: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+// export const PosterImg2 = styled.img`
+//   border-radius: 10px;
+//   width: 330px;
+//   height: 450px;
+//   margin: 30px;
+//   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px,
+//     rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 
-  @media screen and (max-width: 800px) {
-    width: 90%;
-    height: 65%;
-    justify-content: center;
-    margin: 10px;
-    max-width: 450px;
-  }
+//   @media screen and (max-width: 800px) {
+//     width: 90%;
+//     height: 65%;
+//     justify-content: center;
+//     margin: 10px;
+//     max-width: 450px;
+//   }
 
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-`
+//   @media screen and (max-width: 480px) {
+//     display: none;
+//   }
+// `
 
 export const SearchErrorMessage = styled.p`
   font-weight: 500;
