@@ -72,8 +72,6 @@ const DetailsPage = () => {
     }
   }, [])
 
-  
-
   const addToFavorites = () => {
     const newFavoriteList = [...favorites, selectedMovie]
     setFavorites(newFavoriteList)
@@ -92,14 +90,18 @@ const DetailsPage = () => {
   const movieGenres =
     selectedMovie && selectedMovie.Genre && selectedMovie.Genre?.split(",")
 
-    const movieCast =
-    selectedMovie && selectedMovie.Actors && selectedMovie.Actors?.split(",")  
+  const movieCast =
+    selectedMovie && selectedMovie.Actors && selectedMovie.Actors?.split(",")
 
-    const movieDirector =
-    selectedMovie && selectedMovie.Director && selectedMovie.Director?.split(",") 
+  const movieDirector =
+    selectedMovie &&
+    selectedMovie.Director &&
+    selectedMovie.Director?.split(",")
 
-
-  const inFavorites = favorites && favorites.find((item) => item.imdbID === params.id) ? true : false
+  const inFavorites =
+    favorites && favorites.find((item) => item.imdbID === params.id)
+      ? true
+      : false
 
   // console.log("ARRAY RATINGS", selectedMovie && selectedMovie.Ratings && selectedMovie.Ratings[0].Value)
   console.log("SELECTED MOVIE", selectedMovie && selectedMovie)
@@ -146,13 +148,12 @@ const DetailsPage = () => {
                 </RTomatoesRating>
               </RTomatoesWrapper>
 
-              <LikeButtonWrapper inFavorites={inFavorites} onClick={inFavorites ? removeFromFavorites : addToFavorites}>
-              {inFavorites ? (
-        <FillHeartIcon />
-      ) : (
-        <RegHeartIcon />
-      )}
-                
+              <LikeButtonWrapper
+                inFavorites={inFavorites}
+                onClick={inFavorites ? removeFromFavorites : addToFavorites}
+              >
+                {inFavorites ? <FillHeartIcon /> : <RegHeartIcon />}
+
                 <LikeButtonText>
                   {inFavorites ? "Remove movie" : "Add to favorites"}
                 </LikeButtonText>
@@ -161,23 +162,22 @@ const DetailsPage = () => {
             <PlotTitle>Plot</PlotTitle>
             <Overview>{selectedMovie && selectedMovie.Plot}</Overview>
             <CastGenreDirectorContainer>
-            <CastWrap>
-              <h3> Cast </h3>
-              {movieCast &&
-                movieCast.map((item) => <p key={item}>{item.trim()}</p>)}
-            </CastWrap>
-            <GenreWrap>
-            <h3> Genre </h3>
-              {movieGenres &&
-                movieGenres.map((item) => <p key={item}>{item.trim()}</p>)}
-            </GenreWrap>
-            <DirectorWrap>
-            <h3> Director </h3>
-              {movieDirector &&
-                movieDirector.map((item) => <p key={item}>{item.trim()}</p>)}
-            </DirectorWrap>
+              <CastWrap>
+                <h3> Cast </h3>
+                {movieCast &&
+                  movieCast.map((item) => <p key={item}>{item.trim()}</p>)}
+              </CastWrap>
+              <GenreWrap>
+                <h3> Genre </h3>
+                {movieGenres &&
+                  movieGenres.map((item) => <p key={item}>{item.trim()}</p>)}
+              </GenreWrap>
+              <DirectorWrap>
+                <h3> Director </h3>
+                {movieDirector &&
+                  movieDirector.map((item) => <p key={item}>{item.trim()}</p>)}
+              </DirectorWrap>
             </CastGenreDirectorContainer>
-            
           </InfoContainer>
           <MoviePoster src={`${selectedMovie && selectedMovie.Poster}`} />
         </>

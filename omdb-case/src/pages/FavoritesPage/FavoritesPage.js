@@ -1,6 +1,10 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { goToDetailsPage } from "../../routes/coordinator"
-import { CardsContainer, GeneralContainer } from "./FavoritesPage.styles"
+import {
+  CardsContainer,
+  EmptyList,
+  GeneralContainer,
+} from "./FavoritesPage.styles"
 import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
@@ -30,7 +34,15 @@ const FavoritesPage = () => {
   return (
     <GeneralContainer>
       <Header placeholder="Search movies ..." />
-      <CardsContainer>{favoriteCards}</CardsContainer>
+      {favorites && favorites.length > 0 ? (
+        <CardsContainer>{favoriteCards}</CardsContainer>
+      ) : (
+        <EmptyList>
+          <h3>Your Favorites list is empty</h3>
+          <p>Never miss a movie or show.</p>
+          <p>Use your Favorites list to track what you want to see.</p>
+        </EmptyList>
+      )}
     </GeneralContainer>
   )
 }
