@@ -53,9 +53,10 @@ const Home = () => {
       {searchTerm.length === 0 ? (
         <HomeBackground>
           <ImagesWrapper>{homePageCards}</ImagesWrapper>
-          <TextWrapper><h1>Don't know what to search?</h1>
-          <p>Here's an offer you can't refuse</p></TextWrapper>
-          
+          <TextWrapper>
+            <h1>Don't know what to search?</h1>
+            <p>Here's an offer you can't refuse</p>
+          </TextWrapper>
         </HomeBackground>
       ) : (
         <CardsContainer>{movieCards}</CardsContainer>
