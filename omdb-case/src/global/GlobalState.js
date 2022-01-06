@@ -14,6 +14,8 @@ const GlobalState = (props) => {
   const [searchError, setsearchError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState("1")
+  const [showModal, setShowModal] = useState(false)
+  const [likeMessage, setLikeMessage] = useState("")
   const initial = useRef(true)
 
   const getMovies = (searchTitle) => {
@@ -115,10 +117,14 @@ const GlobalState = (props) => {
     searchError,
     currentPage,
     setCurrentPage,
+    showModal,
+    setShowModal,
+    likeMessage,
+    setLikeMessage
   }
 
   console.log("DETAILS", movieDetails)
-  console.log("GLOBAL PAGE", currentPage)
+  // console.log("GLOBAL PAGE", currentPage)
 
   return (
     <GlobalStateContext.Provider value={data}>

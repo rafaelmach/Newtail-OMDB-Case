@@ -53,7 +53,6 @@ export const MovieTitle = styled.h2`
   padding: 0 2px;
   font-weight: 500;
   opacity: 0;
-  transition: ease-in 0.1s;
   transition: transform 500ms ease;
   transform: translateY(70%);
 `
