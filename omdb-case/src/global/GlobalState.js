@@ -120,11 +120,8 @@ const GlobalState = (props) => {
     showModal,
     setShowModal,
     likeMessage,
-    setLikeMessage
+    setLikeMessage,
   }
-
-  console.log("DETAILS", movieDetails)
-  // console.log("GLOBAL PAGE", currentPage)
 
   return (
     <GlobalStateContext.Provider value={data}>

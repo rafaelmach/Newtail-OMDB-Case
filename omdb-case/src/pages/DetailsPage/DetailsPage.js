@@ -44,7 +44,7 @@ const DetailsPage = () => {
     setFavorites,
     showModal,
     setShowModal,
-    setLikeMessage
+    setLikeMessage,
   } = useContext(GlobalStateContext)
   const [selectedMovie, setSelectedMovie] = useState({})
   const history = useHistory()
@@ -56,26 +56,24 @@ const DetailsPage = () => {
         return item.imdbID === params.id
       })
       setSelectedMovie(currentMovie)
-      console.log("1--", currentMovie)
+
       if (currentMovie === undefined) {
         const currentMovie = favorites.find((item) => {
           return item.imdbID === params.id
         })
         setSelectedMovie(currentMovie)
-        console.log("4--", currentMovie)
       }
     } else {
       const currentMovie = homeMovies.find((item) => {
         return item.imdbID === params.id
       })
       setSelectedMovie(currentMovie)
-      console.log("2--", currentMovie)
+
       if (currentMovie === undefined) {
         const currentMovie = favorites.find((item) => {
           return item.imdbID === params.id
         })
         setSelectedMovie(currentMovie)
-        console.log("3--", currentMovie)
       }
     }
   }, [])
@@ -120,10 +118,6 @@ const DetailsPage = () => {
     favorites && favorites.find((item) => item.imdbID === params.id)
       ? true
       : false
-
-  // console.log("ARRAY RATINGS", selectedMovie && selectedMovie.Ratings && selectedMovie.Ratings[0].Value)
-  console.log("SELECTED MOVIE", selectedMovie && selectedMovie)
-  console.log(inFavorites)
 
   return (
     <GeneralContainer>
