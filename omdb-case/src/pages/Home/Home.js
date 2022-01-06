@@ -13,10 +13,17 @@ import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import Header from "../../components/Header/Header"
 import Pagination from "../../components/Pagination/Pagination"
+import Loading from "../../components/Loading/Loading"
 
 const Home = () => {
-  const { movieDetails, searchTerm, homeMovies, movies, searchError } =
-    useContext(GlobalStateContext)
+  const {
+    movieDetails,
+    searchTerm,
+    homeMovies,
+    movies,
+    searchError,
+    isLoading,
+  } = useContext(GlobalStateContext)
   const history = useHistory()
 
   const onClickCard = (id) => {
@@ -50,23 +57,28 @@ const Home = () => {
 
   return (
     <GeneralContainer>
-      <Header placeholder="Search movies ..." />
-      {searchTerm.length === 0 ? (
-        <HomeBackground>
-          <ImagesWrapper>{homePageCards}</ImagesWrapper>
-          <TextWrapper>
-            <h1>Don't know what to search?</h1>
-            <p>Here's an offer you can't refuse</p>
-          </TextWrapper>
-        </HomeBackground>
+      {isLoading ? (
+        <Loading />
       ) : (
-        <CardsContainer>{movieCards}</CardsContainer>
+        <>
+          <Header placeholder="Search movies ..." />
+          {searchTerm.length === 0 ? (
+            <HomeBackground>
+              <ImagesWrapper>{homePageCards}</ImagesWrapper>
+              <TextWrapper>
+                <h1>Don't know what to search?</h1>
+                <p>Here's an offer you can't refuse</p>
+              </TextWrapper>
+            </HomeBackground>
+          ) : (
+            <CardsContainer>{movieCards}</CardsContainer>
+          )}
+          {searchTerm.length > 0 && movies.length === 0 ? (
+            <SearchErrorMessage>{searchError}</SearchErrorMessage>
+          ) : null}
+          {movies.length > 0 ? <Pagination /> : null}
+        </>
       )}
-      {searchTerm.length > 0 && movies.length === 0 ? (
-        <SearchErrorMessage>{searchError}</SearchErrorMessage>
-      ) : null}
-      {movies.length > 0 ? ( 
-      <Pagination /> ) : null}
     </GeneralContainer>
   )
 }

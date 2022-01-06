@@ -9,7 +9,6 @@ import { useHistory } from "react-router"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import Header from "../../components/Header/Header"
-// import { goToHomePage } from "../routes/coordinator"
 
 const FavoritesPage = () => {
   const { favorites } = useContext(GlobalStateContext)
