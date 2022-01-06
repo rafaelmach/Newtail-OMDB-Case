@@ -8,6 +8,19 @@ import Router from "./routes/Router"
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [scrollStatus, setScrollStatus] = useState(false)
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollStatus(true)
+    } else {
+      setScrollStatus(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav)
+  }, [])
 
   useEffect(() => {
     let number = 1000
@@ -24,7 +37,7 @@ const App = () => {
           <Loading />
         ) : (
           <BrowserRouter>
-          <Modal />
+            <Modal scrollStatus={scrollStatus} />
             <Router />
           </BrowserRouter>
         )}

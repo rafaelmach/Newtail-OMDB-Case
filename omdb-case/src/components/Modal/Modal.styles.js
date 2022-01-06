@@ -14,14 +14,13 @@ export const Background = styled.div`
 
 export const ModalWrapper = styled.div`
     position: fixed;
-    top: 100px;
+    top: ${({ scrollStatus }) => (scrollStatus ? "15px" : "100px")};
     right: 10px;
     height: 30px;
     width: ${({ likeMessage }) => (likeMessage === "Added to favorites" ? "150px" : "190px")};
     background: #eee;
     color: #000;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 5px;
