@@ -14,12 +14,19 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
   
-  const { favorites, setFavorites } =
+  const { favorites, setFavorites, showModal,
+    setShowModal,
+    setLikeMessage } =
     useContext(GlobalStateContext)
 
   const addToFavorites = () => {
     const newFavoriteList = [...favorites, cardInfo]
     setFavorites(newFavoriteList)
+    setLikeMessage("Added to favorites")
+    setShowModal(!showModal)
+    setTimeout(() => {
+      setShowModal(false)
+    }, 1000)
   }
 
   const removeFromFavorites = () => {
@@ -30,6 +37,11 @@ const MovieCard = ({ cardInfo, clickCard }) => {
     newFavoriteList.splice(movieIndex, 1)
 
     setFavorites(newFavoriteList)
+    setLikeMessage("Removed from favorites")
+    setShowModal(!showModal)
+    setTimeout(() => {
+      setShowModal(false)
+    }, 1000)
   }
 
   return (

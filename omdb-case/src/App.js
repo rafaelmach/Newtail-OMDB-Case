@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BrowserRouter } from "react-router-dom"
 import { AppContainer } from "./App.styles"
 import Loading from "./components/Loading/Loading"
+import Modal from "./components/Modal/Modal"
 import GlobalState from "./global/GlobalState"
 import Router from "./routes/Router"
 
@@ -23,6 +24,7 @@ const App = () => {
           <Loading />
         ) : (
           <BrowserRouter>
+          <Modal />
             <Router />
           </BrowserRouter>
         )}

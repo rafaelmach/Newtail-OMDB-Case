@@ -36,8 +36,16 @@ import imdbLogo from "../../images/imdb_svg.svg"
 import tomatoesLogo from "../../images/tomatoes_svg.svg"
 
 const DetailsPage = () => {
-  const { movieDetails, isLoading, homeMovies, favorites, setFavorites } =
-    useContext(GlobalStateContext)
+  const {
+    movieDetails,
+    isLoading,
+    homeMovies,
+    favorites,
+    setFavorites,
+    showModal,
+    setShowModal,
+    setLikeMessage
+  } = useContext(GlobalStateContext)
   const [selectedMovie, setSelectedMovie] = useState({})
   const history = useHistory()
   const params = useParams()
@@ -75,6 +83,11 @@ const DetailsPage = () => {
   const addToFavorites = () => {
     const newFavoriteList = [...favorites, selectedMovie]
     setFavorites(newFavoriteList)
+    setLikeMessage("Added to favorites")
+    setShowModal(!showModal)
+    setTimeout(() => {
+      setShowModal(false)
+    }, 1000)
   }
 
   const removeFromFavorites = () => {
@@ -85,6 +98,11 @@ const DetailsPage = () => {
     newFavoriteList.splice(movieIndex, 1)
 
     setFavorites(newFavoriteList)
+    setLikeMessage("Removed from favorites")
+    setShowModal(!showModal)
+    setTimeout(() => {
+      setShowModal(false)
+    }, 1000)
   }
 
   const movieGenres =
