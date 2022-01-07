@@ -54,25 +54,6 @@ Este aplicativo apresenta todas as ferramentas e práticas mais recentes em dese
 Este comando irá instalar todas as dependências necessárias para a aplicação rodar
 <br>
 
-## Configurando a API Key
-
-- Antes de executar a aplicação é necessário fornecer uma API Key. Você precisará fazer o cadastro no site https://www.themoviedb.org/ --- Após fazer o cadastro e clicar em API, procure pela <strong>Chave da API (v3 auth),</strong> conforme a imagem abaixo:
-<br>
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/85365177/145719331-2b7160c2-6881-4ac9-9033-d35e07269480.jpeg" alt="Cadastro no site TMDB">
-</div>
-<br>
-
-- Crie um arquivo .env [ na mesma pasta onde se encontra o arquivo package.json ]
-- Preencha os dados com a Chave da API e salve, conforme a imagem abaixo:
-<br>
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/85365177/145718746-4739fe81-ac82-4e7c-b60b-8cb771366bac.PNG" alt="Chave da API no arquivo .env">
-</div>
-<br>
-
-- Execute os comandos que seguem abaixo:
 
 ## Executando a aplicação
 
@@ -83,7 +64,6 @@ Abre o [http://localhost:3000](http://localhost:3000) para visualizá-lo no nave
 
 A página será recarregada se você fizer edições.\
 <br>
-
 
 ## License
 
