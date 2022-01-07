@@ -25,7 +25,7 @@ const GlobalState = (props) => {
       )
       .then((res) => {
         if (res.data.Response === "True") setMovies(res.data.Search)
-        console.log("PAGE DENTRO DO GET", currentPage)
+        
       })
       .catch((err) => {
         console.log(err)

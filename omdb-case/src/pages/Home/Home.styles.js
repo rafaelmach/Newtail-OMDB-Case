@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
-
 `
 
 export const CardsContainer = styled.div`
@@ -22,17 +21,14 @@ export const HomeBackground = styled.div`
   margin-top: 4em;
   height: 100%;
 
-
   @media screen and (max-width: 480px) {
     height: 1070px;
     margin-top: 1em;
     flex-direction: column-reverse;
   }
-
 `
 
 export const TextWrapper = styled.div`
-
   h1 {
     margin: 0 1em;
     margin-bottom: 0.5em;
@@ -43,7 +39,7 @@ export const TextWrapper = styled.div`
 
     @media screen and (max-width: 480px) {
       font-size: 1.6rem;
-  }
+    }
   }
 
   p {
@@ -55,10 +51,9 @@ export const TextWrapper = styled.div`
 
     @media screen and (max-width: 480px) {
       font-size: 1.3rem;
-  }
+    }
   }
 `
-
 
 export const ImagesWrapper = styled.div`
   display: flex;

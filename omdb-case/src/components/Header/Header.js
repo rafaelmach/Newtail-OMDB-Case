@@ -38,7 +38,7 @@ const Header = ({ placeholder }) => {
     }, searchTime)
 
     return () => clearTimeout(timer)
-  }, [setSearchTerm, state])
+  }, [setSearchTerm, state, history])
 
   const clickLogo = () => {
     setState("")

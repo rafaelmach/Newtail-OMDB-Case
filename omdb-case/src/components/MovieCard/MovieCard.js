@@ -13,10 +13,7 @@ import { useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
 
 const MovieCard = ({ cardInfo, clickCard }) => {
-  
-  const { favorites, setFavorites, showModal,
-    setShowModal,
-    setLikeMessage } =
+  const { favorites, setFavorites, showModal, setShowModal, setLikeMessage } =
     useContext(GlobalStateContext)
 
   const addToFavorites = () => {
@@ -55,11 +52,9 @@ const MovieCard = ({ cardInfo, clickCard }) => {
       <CardVote>{cardInfo.imdbRating}</CardVote>
 
       <MovieTitle onClick={clickCard}> {cardInfo.Title} </MovieTitle>
-      <Released onClick={clickCard} >
-        {" "}
-        {cardInfo.Year}{" "}
-      </Released>
-      {favorites && favorites.find((item) => item.imdbID === cardInfo.imdbID) ? (
+      <Released onClick={clickCard}> {cardInfo.Year} </Released>
+      {favorites &&
+      favorites.find((item) => item.imdbID === cardInfo.imdbID) ? (
         <FilledHeartIcon onClick={removeFromFavorites} />
       ) : (
         <RegularHeartIcon onClick={addToFavorites} />

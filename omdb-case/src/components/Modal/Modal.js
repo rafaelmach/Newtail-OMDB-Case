@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useRef } from "react"
 import { Background, ModalContent, ModalWrapper } from "./Modal.styles"
 import ReactDom from "react-dom"
 import GlobalStateContext from "../../global/GlobalStateContext"
