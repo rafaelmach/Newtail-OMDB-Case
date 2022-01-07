@@ -85,7 +85,7 @@ const DetailsPage = () => {
     setShowModal(!showModal)
     setTimeout(() => {
       setShowModal(false)
-    }, 1000)
+    }, 700)
   }
 
   const removeFromFavorites = () => {
@@ -100,7 +100,7 @@ const DetailsPage = () => {
     setShowModal(!showModal)
     setTimeout(() => {
       setShowModal(false)
-    }, 1000)
+    }, 700)
   }
 
   const movieGenres =

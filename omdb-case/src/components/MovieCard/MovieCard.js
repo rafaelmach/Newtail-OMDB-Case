@@ -26,7 +26,7 @@ const MovieCard = ({ cardInfo, clickCard }) => {
     setShowModal(!showModal)
     setTimeout(() => {
       setShowModal(false)
-    }, 1000)
+    }, 700)
   }
 
   const removeFromFavorites = () => {
@@ -41,7 +41,7 @@ const MovieCard = ({ cardInfo, clickCard }) => {
     setShowModal(!showModal)
     setTimeout(() => {
       setShowModal(false)
-    }, 1000)
+    }, 700)
   }
 
   return (
