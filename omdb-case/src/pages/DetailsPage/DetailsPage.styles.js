@@ -11,9 +11,9 @@ export const GeneralContainer = styled.div`
   height: 100vh;
   overflow-x: hidden;
   transition: all 0.7s;
-  animation: animateThumb 0.7s;
+  animation: animateScreen 0.7s;
 
-  @keyframes animateThumb {
+  @keyframes animateScreen {
     from {
       opacity: 0;
     }

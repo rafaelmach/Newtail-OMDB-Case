@@ -24,10 +24,8 @@ export const SearchBarContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100px;
-  /* background-color: darkgreen; */
 
   @media screen and (max-width: 480px) {
-    /* margin: 0 20px; */
     width: 65%;
     margin-left: 0.8em;
   }

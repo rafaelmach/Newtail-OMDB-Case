@@ -1,14 +1,18 @@
 import styled from "styled-components"
+import { FaHome } from "react-icons/fa"
+import { RiArrowUpSLine } from "react-icons/ri"
 
 export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
 `
 
 export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
+  /* margin-bottom: 50px; */
   justify-content: center;
   align-items: center;
   transition: all 0.5s;
@@ -73,5 +77,99 @@ export const EmptyList = styled.div`
       font-size: 1.3rem;
       margin: 0.1em 0.4em;
     }
+  }
+`
+
+export const ButtonsWrap = styled.div`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+  height: 112px;
+  background: #121214;
+  position: sticky;
+  border-top: 1px solid #29292e;
+  opacity: ${({ scrollStatus }) => (scrollStatus ? "1" : "0")};
+  transition: all 0.5s;
+  animation: animateWrapper 0.7s;
+
+  @keyframes animateWrapper {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    justify-content: center;
+  }
+`
+
+export const HomeIcon = styled(FaHome)`
+  height: 25px;
+  width: 25px;
+  color: #fff;
+  padding: 0 3px;
+  transition: all 0.5s;
+`
+
+export const BackToTopIcon = styled(RiArrowUpSLine)`
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  transition: all 0.5s;
+`
+
+export const HomeIconButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2%;
+  width: 2em;
+  padding: 13px 11px;
+  border-radius: 4px;
+  transition: all 0.5s;
+  background-color: #202024;
+
+  :hover {
+    background-color: #29292e;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 850px) {
+    margin-right: 5%;
+  }
+`
+
+export const BackToTopButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.7em;
+  padding: 10px 12px;
+  margin-right: 350px;
+  border-radius: 4px;
+  transition: all 0.5s;
+  background-color: #202024;
+
+  :hover {
+    background-color: #29292e;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 850px) {
+    margin-right: 0;
+    /* margin-right: 0; */
+    /* margin: 0;
+    padding: 0;
+    width: 3em; */
+  }
+
+  @media screen and (max-width: 480px) {
+    /* margin: 0;
+    padding: 0;
+    width: 3em; */
   }
 `

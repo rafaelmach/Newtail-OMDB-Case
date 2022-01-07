@@ -1,16 +1,13 @@
 import React, { useContext } from "react"
-import GlobalStateContext from '../../global/GlobalStateContext';
-import { ButtonsContainer, PaginationButton } from './Pagination.styles';
+import GlobalStateContext from "../../global/GlobalStateContext"
+import { ButtonsContainer, PaginationButton } from "./Pagination.styles"
 
 const Pagination = () => {
-
   const { currentPage, setCurrentPage, movieDetails } =
     useContext(GlobalStateContext)
 
-  
-
   function scrollToTop() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   const nextPage = () => {
@@ -38,17 +35,25 @@ const Pagination = () => {
 
   return (
     <div>
-      {
-        currentPage == 1 ?
-          <ButtonsContainer>
-            <PaginationButton onClick={() => nextPage()}>Próxima Página</PaginationButton>
-          </ButtonsContainer> :
-          <ButtonsContainer>
-            <PaginationButton onClick={() => firstPage()}>Primeira Página</PaginationButton>
-            <PaginationButton onClick={() => previousPage()}>Página Anterior</PaginationButton>
-            <PaginationButton onClick={() => nextPage()}>Próxima Página</PaginationButton>
-          </ButtonsContainer>
-      }
+      {currentPage == 1 ? (
+        <ButtonsContainer>
+          <PaginationButton onClick={() => nextPage()}>
+            Próxima Página
+          </PaginationButton>
+        </ButtonsContainer>
+      ) : (
+        <ButtonsContainer>
+          <PaginationButton onClick={() => firstPage()}>
+            Primeira Página
+          </PaginationButton>
+          <PaginationButton onClick={() => previousPage()}>
+            Página Anterior
+          </PaginationButton>
+          <PaginationButton onClick={() => nextPage()}>
+            Próxima Página
+          </PaginationButton>
+        </ButtonsContainer>
+      )}
     </div>
   )
 }
