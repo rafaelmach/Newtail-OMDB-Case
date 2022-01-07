@@ -12,17 +12,6 @@ export const GeneralContainer = styled.div`
   height: 75px;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 12px -2px,
     rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
-  transition: all 0.7s;
-  animation: animateHeader 0.7s;
-
-  @keyframes animateHeader {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
   @media screen and (max-width: 480px) {
     margin: 0;
