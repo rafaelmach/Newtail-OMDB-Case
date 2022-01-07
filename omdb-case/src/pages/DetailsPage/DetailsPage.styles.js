@@ -37,7 +37,6 @@ export const InfoContainer = styled.div`
   max-width: 600px;
   min-width: 300px;
   justify-content: center;
-  /* background-color: #313131; */
   border-radius: 10px;
   margin-right: 30px;
   height: auto;
@@ -181,7 +180,7 @@ export const LikeButtonWrapper = styled.div`
 
   :hover {
     cursor: pointer;
-    background-color: #2C2C2C;
+    background-color: #2c2c2c;
 
     ${RegHeartIcon} {
       color: #fff;
@@ -256,7 +255,6 @@ export const CastWrap = styled.div`
 export const DirectorWrap = styled.div`
   display: flex;
   flex-direction: column;
-  /* max-width: 600px; */
 
   h3 {
     color: #7b8c98;

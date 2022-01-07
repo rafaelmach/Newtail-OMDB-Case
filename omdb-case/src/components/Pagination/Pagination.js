@@ -3,8 +3,7 @@ import GlobalStateContext from "../../global/GlobalStateContext"
 import { ButtonsContainer, PaginationButton } from "./Pagination.styles"
 
 const Pagination = () => {
-  const { currentPage, setCurrentPage, movieDetails } =
-    useContext(GlobalStateContext)
+  const { currentPage, setCurrentPage } = useContext(GlobalStateContext)
 
   function scrollToTop() {
     window.scrollTo(0, 0)
@@ -30,8 +29,6 @@ const Pagination = () => {
       scrollToTop()
     }
   }
-
-  console.log("PAGINATION PAGE", currentPage)
 
   return (
     <div>

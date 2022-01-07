@@ -12,7 +12,6 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
-  /* margin-bottom: 50px; */
   justify-content: center;
   align-items: center;
   transition: all 0.5s;
@@ -37,7 +36,6 @@ export const EmptyList = styled.div`
   margin-top: 7em;
   max-width: 450px;
   height: 100%;
-
   transition: all 0.5s;
   animation: animateThumb 0.5s;
 
@@ -81,6 +79,7 @@ export const EmptyList = styled.div`
 `
 
 export const ButtonsWrap = styled.div`
+  opacity: 0;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -89,18 +88,9 @@ export const ButtonsWrap = styled.div`
   background: #121214;
   position: sticky;
   border-top: 1px solid #29292e;
+
   opacity: ${({ scrollStatus }) => (scrollStatus ? "1" : "0")};
   transition: all 0.5s;
-  animation: animateWrapper 0.7s;
-
-  @keyframes animateWrapper {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
   @media screen and (max-width: 850px) {
     justify-content: center;
@@ -161,15 +151,5 @@ export const BackToTopButton = styled.div`
 
   @media screen and (max-width: 850px) {
     margin-right: 0;
-    /* margin-right: 0; */
-    /* margin: 0;
-    padding: 0;
-    width: 3em; */
-  }
-
-  @media screen and (max-width: 480px) {
-    /* margin: 0;
-    padding: 0;
-    width: 3em; */
   }
 `

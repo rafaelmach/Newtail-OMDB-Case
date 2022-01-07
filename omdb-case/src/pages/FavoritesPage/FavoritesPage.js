@@ -60,15 +60,13 @@ const FavoritesPage = () => {
           <CardsContainer>{favoriteCards}</CardsContainer>
 
           <ButtonsWrap scrollStatus={scrollStatus}>
-          <HomeIconButton onClick={() => goToHomePage(history)}>
-            <HomeIcon />
-          </HomeIconButton>
-          <BackToTopButton onClick={scrollToTop}>
-            <BackToTopIcon />
-          </BackToTopButton>
-
+            <HomeIconButton onClick={() => goToHomePage(history)}>
+              <HomeIcon />
+            </HomeIconButton>
+            <BackToTopButton onClick={scrollToTop}>
+              <BackToTopIcon />
+            </BackToTopButton>
           </ButtonsWrap>
-         
         </>
       ) : (
         <EmptyList>

@@ -69,14 +69,7 @@ export const Released = styled.span`
   opacity: 0;
   transition: transform 500ms ease;
   transform: translateY(70%);
-  `
-
-  /// DELETAR 3 LINHAS ABAIXO ... SÓ UM EXEMPLO DE COMO PODEMOS RECEBER PROPS
-  /// TODA VEZ QUE DIGITAMOS ALGUMA COISA NO CAMPO DE BUSCA ... 
-  
-   /* bottom: ${({ searchStatus }) => (searchStatus === "" ? "1%" : "0")};
-  left: ${({ searchStatus }) => (searchStatus === "" ? "5.5%" : "0")}; */
-  /* font-size: ${({ searchStatus }) => (searchStatus === "" ? "1.2rem" : "1.2rem")}; */
+`
 
 export const RegularHeartIcon = styled(FaRegHeart)`
   position: absolute;
@@ -100,7 +93,7 @@ export const FilledHeartIcon = styled(FaHeart)`
   z-index: 3;
   top: 3%;
   right: 5%;
-  color: #E2B616;
+  color: #e2b616;
   width: 1.5em;
   height: 1.5em;
   opacity: 0;

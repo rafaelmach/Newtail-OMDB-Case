@@ -12,6 +12,17 @@ export const GeneralContainer = styled.div`
   height: 75px;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 12px -2px,
     rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
+  transition: all 0.7s;
+  animation: animateHeader 0.7s;
+
+  @keyframes animateHeader {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 480px) {
     margin: 0;
@@ -36,13 +47,11 @@ export const SearchBarWrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  /* max-width: 600px; */
   min-width: 1000px;
   width: 100%;
   height: 55px;
   border-radius: 2px;
   color: black;
-  /* background-color: blue; */
 
   @media screen and (max-width: 1400px) {
     min-width: 0;
@@ -123,7 +132,6 @@ export const LogoPlayIcon = styled.img`
 
   @media screen and (max-width: 480px) {
     display: block;
-    /* margin: 0 1em; */
     margin: 0;
     margin-left: 0.1em;
   }
