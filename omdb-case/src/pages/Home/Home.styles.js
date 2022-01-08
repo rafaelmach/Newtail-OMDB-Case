@@ -18,7 +18,7 @@ export const HomeBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 2em;
   height: 100%;
 
