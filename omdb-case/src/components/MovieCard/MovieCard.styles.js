@@ -119,8 +119,8 @@ export const DetailsIcon = styled(MdPageview)`
 
 export const MovieCardContainer = styled.div`
   border-radius: 10px;
-  width: 300px;
-  height: 400px;
+  width: 280px;
+  height: 370px;
   margin: 15px;
   position: relative;
 
