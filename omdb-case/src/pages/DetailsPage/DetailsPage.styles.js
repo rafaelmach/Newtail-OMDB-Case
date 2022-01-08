@@ -8,7 +8,7 @@ export const GeneralContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
   transition: all 0.7s;
   animation: animateScreen 0.7s;
@@ -305,21 +305,21 @@ export const Rated = styled.p`
 
 export const MoviePoster = styled.img`
   border-radius: 10px;
-  width: 450px;
-  height: 600px;
+  width: 400px;
+  height: 570px;
   margin: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px,
-    rgba(255, 255, 255, 0.23) 0px 6px 6px;
+  box-shadow: rgba(255, 255, 255, 0.05) 0px 6px 24px 0px,
+      rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
 
   @media screen and (max-width: 800px) {
     width: 85%;
     height: 65%;
     justify-content: center;
     margin: 10px;
-    max-width: 450px;
+    max-width: 400px;
   }
 `
 

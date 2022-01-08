@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { goToDetailsPage } from "../../routes/coordinator"
 import {
   CardsContainer,
@@ -54,6 +54,14 @@ const Home = () => {
         />
       )
     })
+
+    function scrollToTop() {
+      window.scrollTo(0, 0)
+    }
+
+    useEffect(() => {
+      scrollToTop()
+    }, [])
 
   return (
     <GeneralContainer>

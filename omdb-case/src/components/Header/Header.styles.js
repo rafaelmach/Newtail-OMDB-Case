@@ -10,8 +10,7 @@ export const GeneralContainer = styled.div`
   background-color: #0b1014;
   width: 100vw;
   height: 75px;
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 6px 12px -2px,
-    rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
+  border-bottom: 2px solid #29292e;
 
   @media screen and (max-width: 480px) {
     margin: 0;
@@ -44,8 +43,20 @@ export const SearchBarWrapper = styled.div`
 
   @media screen and (max-width: 1400px) {
     min-width: 0;
+    width: 60vw;
+  }
+
+  @media screen and (max-width: 1200px) {
+    min-width: 0;
+    width: 50vw;
+  }
+
+  @media screen and (max-width: 850px) {
+    min-width: 0;
     width: 40vw;
   }
+
+
 
   @media screen and (max-width: 480px) {
     min-width: 0;
@@ -106,6 +117,10 @@ export const Logo = styled.img`
   width: 200px;
   margin-right: 13px;
   cursor: pointer;
+
+  @media screen and (max-width: 1400px) {
+    margin-right: 25px;
+  }
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -171,6 +186,10 @@ export const FavoritesButton = styled.div`
     ${FavoritesIcon} {
       color: #fff;
     }
+  }
+
+  @media screen and (max-width: 1400px) {
+    margin-left: 13px;
   }
 
   @media screen and (max-width: 480px) {
