@@ -28,10 +28,6 @@ const FavoritesPage = () => {
     }
   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", changeNav)
-  }, [])
-
   const onClickCard = (id) => {
     goToDetailsPage(history, id)
   }
@@ -39,6 +35,11 @@ const FavoritesPage = () => {
   function scrollToTop() {
     window.scrollTo(0, 0)
   }
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav)
+    scrollToTop()
+  }, [])
 
   const favoriteCards =
     favorites &&

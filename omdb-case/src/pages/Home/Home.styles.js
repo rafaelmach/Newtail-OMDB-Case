@@ -18,7 +18,8 @@ export const HomeBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 4em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   height: 100%;
 
   @media screen and (max-width: 480px) {
