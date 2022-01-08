@@ -17,7 +17,7 @@ Movies Central
 <hr />
 
 ## Website
-- Link para o website do projeto:  <a href="http://rafael-mach-movies-central.surge.sh/" target="_blank"> rafael-mach-movies-central.surge.sh/</a> 💻 
+- Link para o website do projeto:  <a href="https://omdb-rafael-mach.surge.sh/" target="_blank"> rafael-mach-movies-central.surge.sh/</a> 💻 
 
 ## Ferramentas e Tecnologias
 
