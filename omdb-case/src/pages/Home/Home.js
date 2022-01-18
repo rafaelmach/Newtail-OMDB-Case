@@ -63,6 +63,8 @@ const Home = () => {
       scrollToTop()
     }, [])
 
+    console.log(homePageCards.length)
+
   return (
     <GeneralContainer>
       {isLoading ? (
@@ -70,7 +72,7 @@ const Home = () => {
       ) : (
         <>
           <Header placeholder="Search movies ..." />
-          {searchTerm.length === 0 ? (
+          {searchTerm.length === 0 && homePageCards.length > 0 ? (
             <HomeBackground>
               <ImagesWrapper>{homePageCards}</ImagesWrapper>
               <TextWrapper>
